@@ -20,7 +20,7 @@ title                    : "ant-in-giant (extend)"
 title_separator          : " "
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "ant-in-giant"
-description              : # "ant-in-giant website."
+description              : "ant-in-giant website (extend)."
 url                      : "https://ant-in-giant.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
