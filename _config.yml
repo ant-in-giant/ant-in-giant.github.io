@@ -15,17 +15,17 @@
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Site Title"
-title_separator          : "-"
+locale                   : "en-US" # "ja-JP"
+title                    : "ant-in-giant (extend)"
+title_separator          : " "
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "ant-in-giant"
+description              : # "ant-in-giant website."
+url                      : "https://ant-in-giant.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/img/logo_small.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -94,45 +94,59 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  name             : "Hisashi SOGA"
+  avatar           : "/assets/img/luigi.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "a wanderer, aiming a good <br>IT service **practitioner**."
+  location         : "Tokyo (Western)"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://ant-in-giant.work"
+
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+      # url: "https://twitter.com/sogaoh"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      # url: "https://github.com/sogaoh"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      # url: "https://instagram.com/sogaoh"
+    - label: "Bitbucket"
+      icon: "fab fa-fw fa-bitbucket"
+      # url: "https://bitbucket.org/sogaoh"
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      # url: "https://gitlab.com/sogaoh"
+    - label: "Docker Hub"
+      icon: "fab fa-fw fa-docker"
+      # url: "https://hub.docker.com/u/sogaoh/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      # url: mailto:your.name@email.com
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
 
 # Site Footer
 footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
+      url: "https://twitter.com/antingiant"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
+      url: "https://github.com/ant-in-giant"
+    - label: "Docker Hub"
+      icon: "fab fa-fw fa-docker"
+      url: "https://hub.docker.com/orgs/antingiant"
+    #- label: "GitLab"
+    #  icon: "fab fa-fw fa-gitlab"
+    #  url: "https://gitlab.com/ant-in-giant"
+
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
