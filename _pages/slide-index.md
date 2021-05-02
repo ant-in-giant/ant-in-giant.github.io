@@ -13,7 +13,7 @@ sidebar:
 
 ## 2021
 
-|Date |Title  |Link  |
+|Date |Title  |View Slide  |
 |---:|---|---|
 |03/28 |Laravelプロダクト Fargate化への道 |<a href="../assets/slides/2021/0328/phperkaigi2021-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
 
