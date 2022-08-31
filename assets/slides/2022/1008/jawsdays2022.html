@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:53726/ -->
+<html lang="en" class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <title>業務委託やコミュニティメンバーでも活用できる IAM Identity Center | sogaoh's session @ JAWS DAYS 2022</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./jawsdays2022_files/reset.css">
+  <link rel="stylesheet" href="./jawsdays2022_files/reveal.css">
+
+  <link rel="stylesheet" href="./jawsdays2022_files/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="./jawsdays2022_files/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="./jawsdays2022_files/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="./jawsdays2022_files/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="./jawsdays2022_files/tasklist.css">
+	<link rel="stylesheet" href="./jawsdays2022_files/iota.css">
+	<link rel="stylesheet" href="./jawsdays2022_files/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+
+   
+
+<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><script id="twitter-wjs" src="./jawsdays2022_files/widgets.js"></script><script type="text/javascript" id="MathJax-script" src="./jawsdays2022_files/tex-mml-chtml.js" async=""></script><link rel="stylesheet" href="./jawsdays2022_files/verticator.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+<body class="reveal-viewport" style="transition: transform 0.8s ease 0s; --slide-width:960px; --slide-height:700px; --slide-scale:1.20137;">
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="./jawsdays2022_files/luigi.jpg" style="height:100%">
+    </div>
+
+
+  <div class="reveal none center focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style=""><ul class="verticator visible" style="--verticator-scale:1.2; color: black; --bullet-maincolor:black;"><li data-index="0" class="active"><a href="http://localhost:53726/#/0/0"></a></li><li data-index="1"><a href="http://localhost:53726/#/0/1"></a></li><li data-index="2"><a href="http://localhost:53726/#/0/2"></a></li><li data-index="3"><a href="http://localhost:53726/#/0/3"></a></li></ul>
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.20137);">
+
+      
+
+
+    
+    <section style="top: 0px; display: block;" class="stack present">
+        <section style="top: 80px; display: block;" class="present">
+            <h2>業務委託やコミュニティ<br>メンバーでも活用できる<br>IAM Identity Center</h2>
+<p>2022/10/08</p>
+<p><a href="http://twitter.com/sogaoh">@sogaoh</a></p>
+<p><a href="https://jawsdays2022.jaws-ug.jp/">https://jawsdays2022.jaws-ug.jp/</a></p>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 83.5px; display: block;" hidden="">
+                <h3>About Me</h3>
+<span style="font-size:32px">
+<p><a href="https://www.ant-in-giant.work/about/" target="___" rel="noopener">Hisashi SOGA</a><br>
+<img src="./jawsdays2022_files/sogaoh-bio.png" width="320"><br></p>
+</span>
+<span style="font-size:24px">
+<ul>
+<li>1月 <a href="https://sre-next.org/" target="___" rel="noopener">SRE NEXT Assoc.</a> 理事、5月 <a href="https://sre-next.dev/2022/" target="___" rel="noopener">SRE NEXT 2022</a> Staff</li>
+<li>3月 <a href="https://www.ant-in-giant.llc/" target="___" rel="noopener">ant-in-giant G.K.</a> 設立、代表社員</li>
+<li>6月〜 既存WebサービスリニューアルプロジェクトにおけるSREロール、<br>複業でクラウドインフラ・CI/CDの構築・運用サポートなど</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 30.5px; display: block;" hidden="">
+                <h3>Recent Activity</h3>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://github.com/DataDog/integrations-core/issues/12748" target="___" rel="noopener"><img src="./jawsdays2022_files/22-08-13-gh.png" width="400"></a></td>
+    <td style="border:none;"><a href="https://zenn.dev/sogaoh/articles/22-08-07-bf2e5ca222cdaf" target="___" rel="noopener"><img src="./jawsdays2022_files/22-08-07-zenn.png" width="400"></a></td>
+  </tr>
+  <tr style="border:none;">
+    <td style="border:none;"><a href="https://zenn.dev/sogaoh/articles/22-06-18-e0fb2a39825f49" target="___" rel="noopener"><img src="./jawsdays2022_files/22-06-18-zenn.png" width="400"></a></td>
+    <td style="border:none;"><a href="https://blog.sre-next.dev/entry/2022/05/19/133106" target="___" rel="noopener"><img src="./jawsdays2022_files/22-05-19-blog.png" width="360"></a></td>
+  </tr>
+</tbody></table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+                <h3>AGENDA</h3>
+<ul>
+<li>はじめに</li>
+<li>Main組織にSSO設定</li>
+<li>Main組織配下にFree組織を設定</li>
+<li>Free組織メンバーへのSSO設定</li>
+<li>この方法の発展</li>
+<li>おわりに
+<br></li>
+</ul>
+<hr>
+<span style="font-size:22px">
+<ul>
+<li>資料は公開してあります -&gt; <span style="color:orange">TODO</span> <!-- [https://kutt.it/53AoU3](https://kutt.it/53AoU3) --> <br><br></li>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）)<br><br></li>
+<li>(<a href="https://speakerdeck.com/sogaoh/20221008-jawsdays2022" target="___" rel="noopener">SpeakerDeck版</a> はダウンロードしたPDFならリンクに飛べるのでご利用ください)</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 157.5px; display: block;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:56px">はじめに</span></li>
+<li>Main組織にSSO設定</li>
+<li>Main組織配下にFree組織を設定</li>
+<li>Free組織メンバーへのSSO設定</li>
+<li>この方法の発展</li>
+<li>おわりに</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 26px; display: block;">
+                <h3>状況想定</h3>
+<br>
+<ul>
+<li>Main組織 : プロダクトAを運営する会社<br>
+企画・デザイン・開発の部署あり。小人数ではない
+<ul>
+<li><span style="color:red">Google Workspace 高めエディション</span> (*1)</li>
+</ul>
+</li>
+<li>業務委託メンバー数名ほど（リモート・関東）
+<ul>
+<li>Google Workspace Business Starter</li>
+</ul>
+</li>
+<li>協力会社メンバー数名ほど（リモート：関東以外）
+<ul>
+<li>IdP 特になし
+<ul>
+<li>カレンダー共有は個人のGmailなど</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*1) refs: <a href="https://workspace.google.com/intl/ja/pricing.html" target="___" rel="noopener">Google Workspace（旧称 G Suite）: お支払いプラン</a></p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>IAM Identity Center 導入の<br>モチベーション</h3>
+<br>
+<span>
+<ul>
+<li>アカウント管理（入社/退職対応）が大変
+<ul>
+<li>業務委託・協力会社メンバー契約開始終了もある</li>
+</ul>
+</li>
+<li>アクセスキー・シークレットキー漏洩のリスク</li>
+<li>ログイン操作の手間を減らしたい</li>
+<li>不要な IAM ユーザーを作りたくない</li>
+<li><span style="color:red">時流に乗りたい</span></li>
+</ul>
+</span>
+<span style="font-size:32px;">
+<p>※ IAM Identity Center は以降 <span style="color:red">SSO</span> と表現します（長いので）<br>
+※ Google Workspace は以降 <span style="color:red">GW</span> と表現します（長いので）</p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>課題解決への一手</h3>
+<br>
+<ul>
+<li>GW 高めエディションに下位組織を設けて<br>
+業務委託・協力会社メンバーをそこに投入</li>
+<li>この下位組織には Google Cloud Identity Free<br>(以降 <span style="color:red">GCIF</span>)の無料ライセンスを割り当てる (*2)</li>
+</ul>
+<span style="font-size:32px;">
+<p>※ 以降、この下位組織を <span style="color:red">Free組織</span> と表現します</p>
+</span>
+<span style="font-size:32px;">
+<ul>
+<li>[デメリット]：
+<ul>
+<li>個々のメンバーが管理するアカウントが増える
+<ul>
+<li>業務委託・協力会社、副業・アルバイト・…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*2) refs: <a href="https://okash1n.blog/try-google-cloud-identity-free-b4d9be399bd9" target="___" rel="noopener">完全無料のIDaaS！？Google Cloud Identity Freeを試してみる</a> (2021.11.06)</p>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 157.5px; display: block;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじめに</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Main組織にSSO設定</span></li>
+<li>Main組織配下にFree組織を設定</li>
+<li>Free組織メンバーへのSSO設定</li>
+<li>この方法の発展</li>
+<li>おわりに</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>組織と AWS の紐付け</h3>
+<br>
+<ul>
+<li>管理アカウントで AWS Organizations を有効化</li>
+<li><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/prereqs.html" target="___" rel="noopener">前提条件</a> を確認したうえで、SSO (*3) を有効化</li>
+<li>ID ソースを選択する
+<span style="font-size:36px;">
+<ul>
+<li><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/supported-idps.html" target="___" rel="noopener">サポートされている ID プロバイダー</a> に GW はない</li>
+<li>ので、手動で SAML 連携設定を行う (*4)
+</li>
+</ul>
+</span></li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*3) IAM Identity Center<br>
+(*4) ガイド (2022/8/29時点) : <a href="https://controltower.aws-management.tools/aa/sso/google/" target="___" rel="noopener">AWS Control Tower Workshops &gt; … &gt; Google Workspace</a> ・・・以下↓、注意点</p>
+<ul>
+<li>全面英語、画面が最新でない</li>
+<li>Google GCP - create Directory Service API から AWS SSO - Check Provisioning まではオプショナル</li>
+<li>Deleting AWS resources deployed in this lab はしない</li>
+</ul>
+</span>
+<!-- (background image test) 
+<section data-background-image="/img/luigi.jpg" 
+  data-background-position="bottom 20px right 20px"
+  data-background-size="192px 128px"
+  data-background-opacity="0.2"
+>
+<h3>許可セット (IAM) の準備</h3>
+</section>
+-->
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>許可セット (IAM) の準備</h3>
+<br>
+<ul>
+<li>ユーザー追加
+<ul>
+<li><span style="font-size:32px;">ユーザー名 と E メールアドレス は同じにする</span></li>
+</ul>
+</li>
+<li>ユーザーが所属するグループを作成
+<ul>
+<li><span style="font-size:32px;">権限（≒許可セット）がわかりやすいようにすると良い</span></li>
+</ul>
+</li>
+<li>許可セットを作成
+<ul>
+<li><span style="font-size:32px;">事前定義された許可セットから選択 (*5) or</span></li>
+<li><span style="font-size:32px;">カスタマイズされたIAMポリシー（カスタム許可セット）(*6)</span></li>
+</ul>
+</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*5) refs: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html" target="___" rel="noopener">AWS managed policies for job functions</a> (※ Read-only access が外れている)<br>
+(*6) refs: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html" target="___" rel="noopener">Managed policies and inline policies</a>, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html" target="___" rel="noopener">AWS services that work with IAM</a>, … <br>　　インラインポリシーを作りこなせると強そう</p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>許可セットを割り当てる</h3>
+<br>
+<ul>
+<li>SSO アクセスを行いたい AWSアカウント に <span style="background-color:black; color:white">レ</span></li>
+<li>「ユーザーまたはグループを割り当て」を行う
+<ul>
+<li><span style="font-size:36px;">割り当てたいグループ or ユーザーに <span style="background-color:black; color:white">レ</span> して「Next」</span></li>
+<li><span style="font-size:36px;">割り当てたい許可セットに <span style="background-color:black; color:white">レ</span> して「Next」</span></li>
+<li><span style="font-size:36px;">確認して「送信」</span></li>
+</ul>
+</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>とても丁寧で詳しい説明ブログ：“え、IAM ユーザーを作らなくてもマネジメントコンソールにログインできるの!?”</p>
+<p><a href="https://aws.amazon.com/jp/blogs/startup/techblog-iam-sso-practice/" target="___" rel="noopener">シングルサインオン実践編</a> (2022.01.19)<br>
+<a href="https://aws.amazon.com/jp/blogs/startup/techblog-iam-sso-concept/" target="___" rel="noopener">シングルサインオン考え方編</a> (2021.11.26)</p>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 350px; display: none;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじめに</li>
+<li>Main組織にSSO設定</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Main組織配下にFree組織を設定</span></li>
+<li>Free組織メンバーへのSSO設定</li>
+<li>この方法の発展</li>
+<li>おわりに</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>GCIFの開始</h3>
+<br>
+<ul>
+<li><span style="color:red">特権管理者</span>で、GW 管理画面に入る</li>
+<li>お支払い &gt; その他のサービスを… &gt; Cloud Identity</li>
+<li>Cloud Identity (*7) を「開始」</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*7) refs: <a href="https://support.google.com/cloudidentity/answer/7319251?hl=ja" target="___" rel="noopener">Cloud Identity とは | Google Workspace 管理者ヘルプ</a></p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>Free組織にGCIFライセンス割当</h3>
+<br>
+<ul>
+<li>お支払い &gt; ライセンスの設定</li>
+<li>Main組織の <span style="color:red">自動ライセンス -&gt; オフ</span> (*8)</li>
+<li>ディレクトリ &gt; 組織部門</li>
+<li>Main組織の配下に新しいFree組織を作成する (*9)</li>
+<li>(再び) お支払い &gt; ライセンスの設定</li>
+<li>作成したFree組織の自動ライセンス <span style="color:red">オフ</span> を確認</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*8) refs: <a href="https://support.google.com/cloudidentity/answer/7338389?hl=ja" target="___" rel="noopener">設定時に Google Workspace ライセンスの自動割り当てを無効にする | Google Workspace 管理者ヘルプ</a><br>
+(*9) refs: <a href="https://support.google.com/a/answer/182537?hl=ja" target="___" rel="noopener">組織部門を追加する | Google Workspace 管理者ヘルプ</a><br></p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>Free組織にユーザー追加</h3>
+<br>
+<ul>
+<li>ディレクトリ &gt; ユーザー &gt; 新しいユーザーの追加</li>
+<li>ユーザー情報の設定
+<ul>
+<li><span style="font-size:36px;">姓・名・メールアドレス・ドメイン</span></li>
+</ul>
+</li>
+<li>ユーザーの…、組織部門、…を管理するを展開
+<ul>
+<li><span style="font-size:36px;">Free組織を選択して「新しいユーザーの追加」</span>
+<ul>
+<li><span style="font-size:36px;"><span style="color:red">ユーザー名・パスワードを控える</span>（伝える）</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>お支払い &gt; ライセンスの設定 を確認
+<ul>
+<li><span style="font-size:36px;"><span style="color:red">有料ライセンスが割り当たっていたら削除する</span></span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 350px; display: none;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじめに</li>
+<li>Main組織にSSO設定</li>
+<li>Main組織配下にFree組織を設定</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Free組織メンバーへのSSO設定</span></li>
+<li>この方法の発展</li>
+<li>おわりに</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>SSOでFree組織メンバー追加</h3>
+<br>
+<ul>
+<li><span style="color:red">Main組織と同様に</span>ユーザー追加
+<ul>
+<li><span style="font-size:32px;">ユーザー名 と E メールアドレス は同じにする</span></li>
+</ul>
+</li>
+<li><span style="color:red">Main組織と同様に</span>グループにユーザーを追加
+<ul>
+<li><span style="font-size:32px;">既存であればこの段階で許可セットが割り当てられる</span></li>
+</ul>
+</li>
+<li>必要に応じて、許可セットを割り当て
+<ul>
+<li><span style="font-size:32px;">新規グループ (or ユーザー) の場合など</span></li>
+</ul>
+</li>
+</ul>
+<!--
+<br><br>
+<span style="font-size:64px; color:deepskyblue; font-weight:bold;">Main組織と同様に</span>
+-->
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>Main組織と同様にできること</h3>
+<br>
+<ul>
+<li>AWS アクセスポータルの URL から SSO
+<ul>
+<li>GW からのマネコン接続も</li>
+</ul>
+</li>
+<li>ユーザー作成・グループへの追加</li>
+<li>AWSアカウント・許可セットへの割り当て</li>
+</ul>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>当初のモチベーション等への達成</h3>
+<br>
+<ul>
+<li>
+<p>アカウント管理の<span style="color:red">簡素化 ○</span></p>
+</li>
+<li>
+<p>アクセスキー類漏洩のリスク<span style="color:red">低減 ○</span></p>
+</li>
+<li>
+<p>ログイン操作の手間<span style="color:red">低減 ○</span></p>
+</li>
+<li>
+<p><span style="color:red">時流に乗る ○</span></p>
+</li>
+<li>
+<p>GW のコストは<span style="color:red">（ほぼ）増えていない ○</span></p>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 350px; display: none;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじめに</li>
+<li>Main組織にSSO設定</li>
+<li>Main組織配下にFree組織を設定</li>
+<li>Free組織メンバーへのSSO設定</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">この方法の発展</span></li>
+<li>おわりに</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>マネコンへの入り口は開いた</h3>
+<br>
+<ul>
+<li><a href="https://tech.nri-net.com/entry/aws_first_security" target="___" rel="noopener">AWSアカウント作成時にやるべきこと<!-- - NRIネットコムBlog --></a> を見直す</li>
+<li><a href="https://www.slideshare.net/AmazonWebServicesJapan/20210526-aws-expert-online" target="___" rel="noopener">マルチアカウント管理の基本</a> を抑えにいく
+<ul>
+<li><span style="font-size:32px;">大変そうだ・・・少しずつやるのが良さそう (*10)</span>
+<br><br></li>
+</ul>
+</li>
+<li>組織のみんなにAWSをうまく使ってもらえれば<br>それでOK</li>
+</ul>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*10) refs: <a href="https://speakerdeck.com/shonansurvivors/aws-multi-account-strategy?slide=14" target="___" rel="noopener">プロダクトと組織の成長を見据えたスマートラウンドの AWSマルチアカウント戦略</a><br>　　 : <a href="https://aws-startup-community.connpass.com/event/247548/presentation/">AWS Startup Community Conference 2022</a> (2022.08.26) 資料</p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>GCIF以外の方法も知る</h3>
+<br>
+<ul>
+<li>フェデレーティッド シングルサインオン (*11) x</li>
+<li>踏み台アカウントパターン (*12)
+<br><br>
+-&gt; AWS SSO (IAM Identity Center) よりは煩雑と<br>なるものの、IAMユーザーはほぼ不要にできる</li>
+</ul>
+<p><span style="font-size:32px;">(個人的には)MFA不要な方法に寄せたい</span></p>
+<hr>
+<span style="font-size:18px; text-align:left">
+<p>(*11) refs: <a href="https://aws.amazon.com/jp/blogs/news/how-to-set-up-federated-single-sign-on-to-aws-using-google-workspace/" target="___" rel="noopener">Google Workspace を用いて AWS へのフェデレーティッド シングルサインオンをセットアップする方法</a><br>
+(*12) refs: <a href="https://blog.takuros.net/entry/2020/12/01/094417" target="___" rel="noopener">AWSのマルチアカウント管理ことはじめ　ログインの一元化の設計</a></p>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>よりよい管理の模索</h3>
+<br>
+<ul>
+<li>
+<p>IaC で状態管理</p>
+<ul>
+<li><a href="https://github.com/cloudposse/terraform-aws-sso" target="___" rel="noopener">cloudposse/terraform-aws-sso</a> Module</li>
+<li><a href="https://github.com/cloudposse/aws-google-auth" target="___" rel="noopener">cloudposse/aws-google-auth</a> Module</li>
+<li>など …</li>
+</ul>
+</li>
+<li>
+<p>IAM インラインポリシーを自在に使いたい</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/iam/index.html" target="___" rel="noopener">AWS Identity and Access Management Documentation</a> からの果てなき道…</li>
+</ul>
+</li>
+</ul>
+<!-- 動画埋め込み情報
+https://b-risk.jp/blog/2021/08/video_embedding/
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7lPRbuVnYj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 350px; display: none;">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじめに</li>
+<li>Main組織にSSO設定</li>
+<li>Main組織配下にFree組織を設定</li>
+<li>Free組織メンバーへのSSO設定</li>
+<li>この方法の発展</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">おわりに</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h3>まとめ (?)</h3>
+<br>
+<ul>
+<li>AWS <span style="color:red">SSO</span> のはじめかた、<br>
+それによって解決できる課題<br><br></li>
+<li><span style="color:red">GCIF</span> という IdP の紹介、<br>
+利用する際の注意点<br><br></li>
+<li>複数の情報・技術を組み合わせてみる<br>
+ことから生まれる<span style="color:red">発展可能性</span></li>
+</ul>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h4><br>End</h4>
+<br>
+<p>お気づきの点あれば<br><a href="https://twitter.com/sogaoh">@sogaoh</a> まで</p>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
+                <h4>余談</h4>
+<br>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://twitter.com/sogaoh/status/1556479097387515904" target="___" rel="noopener"><img src="./jawsdays2022_files/digression0.png" width="400"></a></td>
+    <td style="border:none;"><a href="https://docs.aws.amazon.com/ja_jp/singlesignon/latest/userguide/manage-your-identity-source.html" target="___" rel="noopener"><img src="./jawsdays2022_files/digression3.png" width="480"></a></td>
+  </tr>
+  <tr style="border:none;">
+    <td colspan="2" style="text-align:center; border:none;"><a href="https://twitter.com/sogaoh/status/1556930549096529920" target="___" rel="noopener"><img src="./jawsdays2022_files/digression2.png" width="480"></a></td>
+  </tr>
+</tbody></table>
+<!--
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ほんともう許して w <a href="https://t.co/OGhEO4UHdL">pic.twitter.com/OGhEO4UHdL</a></p>&mdash; 央 (@sogaoh) <a href="https://twitter.com/sogaoh/status/1556930549096529920?ref_src=twsrc%5Etfw">August 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  <div class="backgrounds"><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: block;"><a href="http://localhost:53726/#/">
+					<span class="slide-number-a">1</span>
+					<span class="slide-number-delimiter">.</span>
+					<span class="slide-number-b">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down enabled highlight" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">業務委託やコミュニティ メンバーでも活用できる IAM Identity Center 2022/10/08 @sogaoh https://jawsdays2022.jaws-ug.jp/ </div></div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="./jawsdays2022_files/reveal.js"></script>
+<script src="./jawsdays2022_files/notes.js"></script>
+<script src="./jawsdays2022_files/markdown.js"></script>
+<script src="./jawsdays2022_files/highlight.js"></script>
+<script src="./jawsdays2022_files/math.js"></script>
+<script src="./jawsdays2022_files/plugin.js"></script>
+<script src="./jawsdays2022_files/plugin(1).js"></script>
+<script src="./jawsdays2022_files/svg.min.js"></script>
+<script src="./jawsdays2022_files/plugin(2).js"></script>
+<script src="./jawsdays2022_files/Chart.min.js"></script>
+<script src="./jawsdays2022_files/d3.v3.min.js"></script>
+<script src="./jawsdays2022_files/d3.patch.js"></script>
+<script src="./jawsdays2022_files/queue.v1.min.js"></script>
+<script src="./jawsdays2022_files/topojson.v1.min.js"></script>
+<script src="./jawsdays2022_files/function-plot.js"></script>
+<script src="./jawsdays2022_files/plugin(3).js"></script>
+<script src="./jawsdays2022_files/plugin(4).js"></script>
+<script src="./jawsdays2022_files/Chart.min(1).js"></script>
+<script src="./jawsdays2022_files/plugin(5).js"></script>
+<script src="./jawsdays2022_files/verticator.js"></script>
+
+<script src="./jawsdays2022_files/zoom.js"></script>
+<script src="./jawsdays2022_files/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./jawsdays2022_files/widget_iframe.9d00f3a022654eb8edfbc3190e981f9d.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./jawsdays2022_files/saved_resource.html"></iframe></body></html>
