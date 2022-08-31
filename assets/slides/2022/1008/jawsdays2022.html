@@ -5,8 +5,8 @@
 
   <title>業務委託やコミュニティメンバーでも活用できる IAM Identity Center | sogaoh's session @ JAWS DAYS 2022</title>
 
-  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-  <meta name="author" content="Hakim El Hattab">
+  <meta name="description" content="AWS IAM Identity Center、便利だなー、と思います。/ Organization 有効化が前提なので、組織下でないと利用が難しいと思いきや、方法次第で然程コストをかけずに活用できそうだ、と最近気がつきました。/ 業務委託メンバーが主力だったり、カンファレンスの機会のたびに集合・解散を繰り返すような流動的な開発組織においても利用できるのではないのかと...">
+  <meta name="author" content="Hisashi SOGA (sogaoh)">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -450,7 +450,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
     </div>
 
 
-  <div class="reveal none center focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style=""><ul class="verticator visible" style="--verticator-scale:1.2; color: black; --bullet-maincolor:black;"><li data-index="0" class="active"><a href="http://localhost:53726/#/0/0"></a></li><li data-index="1"><a href="http://localhost:53726/#/0/1"></a></li><li data-index="2"><a href="http://localhost:53726/#/0/2"></a></li><li data-index="3"><a href="http://localhost:53726/#/0/3"></a></li></ul>
+  <div class="reveal center focused has-vertical-slides has-horizontal-slides ready none" role="application" data-transition-speed="default" data-background-transition="fade" style=""><ul class="verticator visible" style="--verticator-scale:1.2; color: black; --bullet-maincolor:black;"><li data-index="0" class="active"><a href="http://localhost:53726/#/0/0"></a></li><li data-index="1" class=""><a href="http://localhost:53726/#/0/1"></a></li><li data-index="2" class=""><a href="http://localhost:53726/#/0/2"></a></li><li data-index="3" class=""><a href="http://localhost:53726/#/0/3"></a></li></ul>
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.20137);">
@@ -459,7 +459,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 0px; display: block;" class="stack present">
+    <section style="top: 0px; display: block;" class="stack present" data-previous-indexv="0">
         <section style="top: 80px; display: block;" class="present">
             <h2>業務委託やコミュニティ<br>メンバーでも活用できる<br>IAM Identity Center</h2>
 <p>2022/10/08</p>
@@ -468,7 +468,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
             </section>
         
-            <section class="future" aria-hidden="true" style="top: 83.5px; display: block;" hidden="">
+            <section class="future" style="top: 83.5px; display: block;" hidden="" aria-hidden="true">
                 <h3>About Me</h3>
 <span style="font-size:32px">
 <p><a href="https://www.ant-in-giant.work/about/" target="___" rel="noopener">Hisashi SOGA</a><br>
@@ -484,7 +484,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
             </section>
         
-            <section class="future" aria-hidden="true" style="top: 30.5px; display: block;" hidden="">
+            <section class="future" style="top: 30.5px; display: block;" hidden="" aria-hidden="true">
                 <h3>Recent Activity</h3>
 <table style="border:none;">
   <tbody><tr style="border:none;">
@@ -499,7 +499,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
             </section>
         
-            <section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+            <section class="future" style="top: 23.5px; display: none;" hidden="" aria-hidden="true">
                 <h3>AGENDA</h3>
 <ul>
 <li>はじめに</li>
@@ -513,7 +513,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 <hr>
 <span style="font-size:22px">
 <ul>
-<li>資料は公開してあります -&gt; <span style="color:orange">TODO</span> <!-- [https://kutt.it/53AoU3](https://kutt.it/53AoU3) --> <br><br></li>
+<li>資料は公開してあります -&gt; <a href="https://kutt.it/nKy9B3" target="_____" rel="noopener">https://kutt.it/nKy9B3</a> <br><br></li>
 <li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
 <li>※2. ところどころの<span style="color:blue">青</span>の文字はリンクになっています</li>
 <li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）)<br><br></li>
@@ -529,7 +529,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 157.5px; display: block;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -636,7 +636,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 157.5px; display: block;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -745,7 +745,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 350px; display: none;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -829,7 +829,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 350px; display: none;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -915,7 +915,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
 
     
-    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 350px; display: none;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -1000,7 +1000,7 @@ https://b-risk.jp/blog/2021/08/video_embedding/
 
 
     
-    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
         <section style="top: 350px; display: none;">
             <span style="font-size:48px; color:gray">
 <ul>
@@ -1068,7 +1068,7 @@ https://b-risk.jp/blog/2021/08/video_embedding/
 					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
 			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
 			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-down enabled highlight" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">業務委託やコミュニティ メンバーでも活用できる IAM Identity Center 2022/10/08 @sogaoh https://jawsdays2022.jaws-ug.jp/ </div></div>
+			<button class="navigate-down enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">業務委託やコミュニティ メンバーでも活用できる IAM Identity Center 2022/10/08 @sogaoh https://jawsdays2022.jaws-ug.jp/ </div></div>
 
   <div class="line top"></div>
   <div class="line bottom"></div>
