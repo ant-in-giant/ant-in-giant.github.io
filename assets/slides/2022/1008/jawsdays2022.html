@@ -885,33 +885,27 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 <li>GW からのマネコン接続も</li>
 </ul>
 </li>
-<li>ユーザー作成・グループへの追加</li>
-<li>AWSアカウント・許可セットへの割り当て</li>
+<li>権限に応じた、AWS リソースの利用
+<ul>
+<li>デフォルトの PowerUserAccess のみだと<br>IAM リソース操作に制約があるので<br>必要に応じて IAMFullAccess ポリシーを</li>
 </ul>
-
+</li>
+<li>請求管理画面への閲覧制限なども<br>許可セット設定次第で可能</li>
+</ul>
+  
             </section>
         
             <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>当初のモチベーション等への達成</h3>
-<br>
-<ul>
-<li>
-<p>アカウント管理の<span style="color:red">簡素化 ○</span></p>
-</li>
-<li>
-<p>アクセスキー類漏洩のリスク<span style="color:red">低減 ○</span></p>
-</li>
-<li>
-<p>ログイン操作の手間<span style="color:red">低減 ○</span></p>
-</li>
-<li>
-<p><span style="color:red">時流に乗る ○</span></p>
-</li>
-<li>
-<p>GW のコストは<span style="color:red">（ほぼ）増えていない ○</span></p>
-</li>
-</ul>
-
+                <br>
+                <ul>
+                <li>アカウント管理の<span style="color:red">簡素化 ○</span></li>
+                <li>アクセスキー類漏洩のリスク<span style="color:red">低減 ◎</span></li>
+                <li>ログイン操作の手間<span style="color:red">低減 ○</span></li>
+                <li>余計な IAM ユーザー<span style="color:red">作成不要 ○</span></li>
+                <li><span style="color:red">時流に乗る ◎</span></li>
+                <li>GW のコストは<span style="color:red">（ほぼ）増えていない ○</span></li>
+                </ul>
             </section>
         
 
