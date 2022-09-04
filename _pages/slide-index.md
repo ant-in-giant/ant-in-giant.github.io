@@ -15,7 +15,7 @@ sidebar:
 
 |Date |Title  |View Slide  |
 |---:|---|:---:|
-|10/08 |業務委託やコミュニティメンバーでも活用できる<br>IAM Identity Center |<a href="../assets/slides/2022/1008/jawsdays2022.html" target="_" rel="noopener"><!-- <img src="/assets/ico/revealjs.ico"> --></a> [^1] |
+|10/08 |業務委託やコミュニティメンバーでも活用できる<br>IAM Identity Center |<a href="../assets/slides/2022/1008/jawsdays2022.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
 
 
 ## 2021
