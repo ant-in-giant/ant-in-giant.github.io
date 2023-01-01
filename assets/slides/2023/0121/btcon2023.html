@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:57779/ -->
+<html lang="en" class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <title>NPOと取り組むスモールスタートな業務IT化  | sogaoh's session @ BTCONJP 2023</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./btcon2023_files/reset.css">
+  <link rel="stylesheet" href="./btcon2023_files/reveal.css">
+
+  <link rel="stylesheet" href="./btcon2023_files/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="./btcon2023_files/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="./btcon2023_files/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="./btcon2023_files/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="./btcon2023_files/tasklist.css">
+	<link rel="stylesheet" href="./btcon2023_files/iota.css">
+	<link rel="stylesheet" href="./btcon2023_files/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+
+   
+
+<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><script id="twitter-wjs" src="./btcon2023_files/widgets.js"></script><script type="text/javascript" id="MathJax-script" src="./btcon2023_files/tex-mml-chtml.js" async=""></script><link rel="stylesheet" href="./btcon2023_files/verticator.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+<body class="reveal-viewport" style="transition: transform 0.8s ease 0s; --slide-width:960px; --slide-height:700px; --slide-scale:1.2192;">
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="./btcon2023_files/antingiant.png" style="height:100%">
+    </div>
+
+
+  <div class="reveal center focused has-vertical-slides has-horizontal-slides ready none" role="application" data-transition-speed="default" data-background-transition="fade" style="cursor: none;"><ul class="verticator visible" style="--verticator-scale:1.22; color: black; --bullet-maincolor:black;"><li data-index="0" class="active"><a href="http://localhost:57779/#/0/0"></a></li><li data-index="1"><a href="http://localhost:57779/#/0/1"></a></li><li data-index="2"><a href="http://localhost:57779/#/0/2"></a></li><li data-index="3"><a href="http://localhost:57779/#/0/3"></a></li><li data-index="4"><a href="http://localhost:57779/#/0/4"></a></li><li data-index="5"><a href="http://localhost:57779/#/0/5"></a></li></ul>
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.2192);">
+
+      
+
+
+    
+    <section style="top: 0px; display: block;" class="stack present" data-previous-indexv="0" data-index-h="0">
+        <section style="top: 90px; display: block;" class="present" data-index-h="0" data-index-v="0">
+            <h2>NPOと取り組む<br>スモールスタートな<br>業務IT化</h2>
+<br>
+<p>2023/01/21  <a href="http://twitter.com/sogaoh">@sogaoh</a><br>
+<a href="https://btcon.jp/">https://btcon.jp/</a></p>
+
+            </section>
+        
+            <section class="future" style="top: 21.5px; display: block;" hidden="" aria-hidden="true" data-index-h="0" data-index-v="1">
+                <h3>About Me</h3>
+<span style="font-size:32px">
+<p><a href="https://www.ant-in-giant.work/about/" target="___" rel="noopener">Hisashi SOGA</a><br>
+<img src="./btcon2023_files/sogaoh-bio.png" width="320"><br></p>
+</span>
+<span style="font-size:24px">
+<ul>
+<li>5社と個人事業主を経て、2022/3〜 <a href="https://www.ant-in-giant.llc/" target="___" rel="noopener">ant-in-giant G.K.</a> 設立</li>
+<li>業務委託で複数社に参画
+<ul>
+<li>テクノロジーネットワーク事業</li>
+<li>ITインフラ運用技術支援</li>
+<li>教育/育成関連事業システム開発</li>
+</ul>
+</li>
+<li>クラウドインフラの構築・運用・保守を軸に従事
+<ul>
+<li>AWS も Google Cloud も、EC2 も ECS も GCE も Cloud Run も</li>
+<li>IAM の奥深さに悩む一方感心する日々</li>
+</ul>
+</li>
+</ul>
+<!-- - 最近では自社メディア<a href="https://tyotto-rurou.tips/" target="___" rel="noopener">"ちょっと るろう"</a>を始めて Page View (PV) などをチェック -->
+</span>
+
+            </section>
+        
+            <section class="future" style="top: 53.5px; display: block;" hidden="" aria-hidden="true" data-index-h="0" data-index-v="2">
+                <h3>Recent Activity</h3>
+<br>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://twitter.com/sogaoh/status/1599062432777134082" target="___" rel="noopener"><img src="./btcon2023_files/22-12-04-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400" height="420"></a></td>
+    <td style="border:none;"><a href="https://twitter.com/sogaoh/status/1604144117981671424" target="___" rel="noopener"><img src="./btcon2023_files/22-12-18-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400" height="420"></a></td>
+  </tr>
+</tbody></table>
+
+            </section>
+        
+            <section class="future" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="0" data-index-v="3">
+                <h3>Advertisement</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><img src="./btcon2023_files/tyotto-rurou-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">自社メディアはじめました<br>
+            URL : <a href="https://tyotto-rurou.tips/" target="___" rel="noopener">https://tyotto-rurou.tips/</a><br>
+            <br>
+            発想の転換を促したいときなどに<br>
+            覗いてみていただけると<br>
+            珍しい/お役立ちなITサービスが<br>
+            見つかるかもしれないサイトです<br>
+            <br>
+            技術検証の場を兼ねており、<br>
+            確認できたことやサイト運営における<br>
+            学びを「管理室」のようなカテゴリで<br>
+            記事にするかも(?)<br>
+            <br>
+            SNS公式アカウントあり: <a href="https://twitter.com/tyottoRurou" target="___" rel="noopener"><img src="./btcon2023_files/square-twitter.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a> <a href="https://www.instagram.com/tyottoRurou" target="___" rel="noopener"><img src="./btcon2023_files/square-instagram.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a> <a href="https://www.facebook.com/tyotto.rurou" target="___" rel="noopener"><img src="./btcon2023_files/square-facebook.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+            </section>
+        
+            <section class="future" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="0" data-index-v="4">
+                <h3>AGENDA</h3>
+<ul>
+<li>はじまりはSTO
+<ul>
+<li><span style="font-size:28px;">今は NPTech、今後 Code for NPO</span></li>
+</ul>
+</li>
+<li>COMPASS プロジェクト
+<ul>
+<li><span style="font-size:28px;">NAVI と PASS と Chat</span></li>
+</ul>
+</li>
+<li>工夫や乗り越えたこと
+<ul>
+<li><span style="font-size:28px;">コスト抑制や予期せぬ問題</span></li>
+</ul>
+</li>
+<li>自分に起きた変化
+<br></li>
+</ul>
+<hr>
+<span style="font-size:22px">
+<ul>
+<li>資料は公開してあります -&gt; <a href="https://pres.ant-in-giant.llc/slide/20230121" target="_____" rel="noopener">https://pres.ant-in-giant.llc/slide/20230121</a> <br><br></li>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字や<span style="color:blue">一部の画像</span>はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）)<br><br></li>
+<li>(<a href="https://speakerdeck.com/sogaoh/20230127-btcon2023" target="___" rel="noopener">SpeakerDeck版</a> はダウンロードしたPDFならリンクに飛べるのでご利用ください)</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" style="top: 173px; display: none;" aria-hidden="true" data-index-h="0" data-index-v="5" hidden="">
+                <h3>key takeaways</h3>
+<br>
+<ol>
+<li>NPO との「接点の持ち方」</li>
+<li>NPO 主導で実現したIT活用事例</li>
+<li>Webサイトにおけるドメインの重要さ</li>
+<li>社会課題に触れて広がった視野</li>
+</ol>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true" data-index-h="1">
+        <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true" data-index-h="1" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:56px">はじまりはSTO</span>
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:36px;">今は NPTech、今後 Code for NPO</span>
+<br><br></li>
+</ul>
+</li>
+<li>COMPASS プロジェクト
+<ul>
+<li><span style="font-size:28px;">NAVI と PASS と Chat</span>
+<br><br></li>
+</ul>
+</li>
+<li>工夫や乗り越えたこと
+<ul>
+<li><span style="font-size:28px;">コスト抑制や予期せぬ問題</span>
+<br><br></li>
+</ul>
+</li>
+<li>自分に起きた変化</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="past" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="1">
+                <h3>STO</h3>
+<p>STO（Social Technology Officer） とは、<br>
+社会課題に取り組むNPOの現場に<br>
+テクノロジーやITで貢献することを目指した<br>
+<a href="https://www.code4japan.org/" target="___" rel="noopener">Code for Japan</a> 発のプロジェクト(Pj)<br>
+<br></p>
+<ul>
+<li>2018.04 <a href="https://www.slideshare.net/codeforjapan/ss-93858944" target="___" rel="noopener">Pj立ち上げ</a>？（自分はまだ知らず） <!-- Code for Japanによる、社会課題に取り組むNPOの現場で活動し、コレクティブ・インパクトを生み出す「ソーシャル・テクノロジー・オフィサー（STO）」を創出するプロジェクトの概要資料 (2018.04.14) --></li>
+<li>2019.05 <a href="https://codeforjapan-govtech-20190514.peatix.com/" target="___" rel="noopener">経産省でのイベント</a> に参加 <!-- 経産省と本気でアジャイル開発をやってみた！制度ナビPJで見えたGovTechのリアルと未来 -->
+<ul>
+<li>“GovTech” を知った</li>
+</ul>
+</li>
+<li>2020.10 <a href="https://sto-c4j-20201025.peatix.com/" target="___" rel="noopener">運命の(?)案件説明会</a> に参加 <!-- 【NPOの経営をITで支える、新しいキャリアへの挑戦】ソーシャル・テクノロジー・オフィサー案件説明会 -->
+<ul>
+<li><a href="https://www.npomoyai.or.jp/" target="___" rel="noopener">自立生活サポートセンター・もやい</a> の案件へ</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section class="past" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="2">
+                <h3>(STO 概念)</h3>
+<img src="./btcon2023_files/STO_201804-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="500">
+<span style="font-size:20px">
+<a href="https://www.slideshare.net/codeforjapan/ss-93858944" target="___" rel="noopener">https://www.slideshare.net/codeforjapan/ss-93858944</a> (2018.04.14) より
+</span>
+
+            </section>
+        
+            <section class="past" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="3">
+                <h3>(フィールドワークを経て契約)</h3>
+<img src="./btcon2023_files/STO_process_202101-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="500">
+<span style="font-size:20px">
+<a href="https://www.slideshare.net/STOCommunity/vol1-242167300" target="___" rel="noopener">https://www.slideshare.net/STOCommunity/vol1-242167300</a> (2021.01.30) より
+</span>
+
+            </section>
+        
+            <section class="past" style="top: 96.5px; display: block;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="4">
+                <h3>現在は NPTech ?</h3>
+<span style="font-size:32px">
+<ul>
+<li>
+<p>一度、総括されたように(自分には)見えた： <a href="https://prtimes.jp/main/html/rd/p/000000058.000016609.html" target="___" rel="noopener">「STO創出プロジェクトレポート ３年間の歩み2019-2021」を制作しました</a> (2022/07)</p>
+</li>
+<li>
+<p>Landing Page であった <a href="https://sto.code4japan.org/">https://sto.code4japan.org/</a> は<br><a href="https://www.code4japan.org/activity/nptech">https://www.code4japan.org/activity/nptech</a> に遷移する<br> (2022/12/30時点)</p>
+</li>
+<li>
+<p>Peatix に <a href="https://peatix.com/group/11611703/events?mode=past" target="___" rel="noopener">NPTech 個別のグループページ</a> ができていた（一方で、<a href="https://www.facebook.com/sto.code4japan/" target="___" rel="noopener">STO の Facebookグループ</a> も健在）</p>
+</li>
+</ul>
+
+            </span></section>
+        
+            <section class="" style="top: 52px; display: block;" aria-hidden="true" data-index-h="1" data-index-v="5">
+                <h3>Code for NPO ?</h3>
+<img src="./btcon2023_files/CfNPO-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="400">
+<span style="font-size:28px; line-height:30px; display:block;">
+<br>
+(とある Slack チャンネルでの動き。<!-- 今後どのように動いていくのか読めない一方、<br>「間口を広げ」を "STO よりはゆるやかな立ち位置、つまり「経営層に近い」に<br>とらわれないで各自に合ったやり方で協働してみませんか"、という呼びかけ、と<br>自分は捉えました。 --> =&gt; もし関心あれば、<br><a href="https://www.code4japan.org/activity/community" target="___" rel="noopener">Code for Japan Slack へ join</a> がオススメ)
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" class="stack future" data-index-h="2" data-previous-indexv="0" hidden="" aria-hidden="true">
+        <section style="top: 33px; display: block;" class="" data-index-h="2" data-index-v="0" aria-hidden="true">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじまりはSTO
+<ul>
+<li><span style="font-size:28px;">今は NPTech、今後 Code for NPO</span>
+<br><br></li>
+</ul>
+</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">COMPASS プロジェクト</span>
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:36px;">NAVI と PASS と Chat</span>
+<br><br></li>
+</ul>
+</li>
+<li>工夫や乗り越えたこと
+<ul>
+<li><span style="font-size:28px;">コスト抑制や予期せぬ問題</span>
+<br><br></li>
+</ul>
+</li>
+<li>自分に起きた変化</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" style="top: 26px; display: none;" data-index-h="2" data-index-v="1" hidden="" aria-hidden="true">
+                <h3>Project “first” Overview</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="./btcon2023_files/design-min.png" target="___" rel="noopener"><img src="./btcon2023_files/design-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="250"></a></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;"><br>「IT化3本柱」構想 (2020/12) <br><br>
+<ul>
+<li>制度ナビ(経由の制度紹介)</li>
+<li>生活保護申請書作成</li>
+<li>有人チャット
+
+</li></ul></span></td>  </tr>
+  <tr style="vertical-align:top;">
+      <td><a href="./btcon2023_files/schedule0-min.png" target="___" rel="noopener"><img src="./btcon2023_files/schedule0-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="500" height="250"></a></td>
+      <td style="vertical-align:top; line-height:32px">
+          <span style="font-size:24px;"><br>2021/02〜開発<br><br>4月末リリース<br>5〜6月で利用評価
+          </span>
+      </td>
+  </tr>
+</tbody>
+
+
+</table>
+
+            </section>
+        
+            <section class="future" style="top: 26px; display: none;" data-index-h="2" data-index-v="2" hidden="" aria-hidden="true">
+                <h3>Project “(last)” Overview</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="./btcon2023_files/diagram-min.png" target="___" rel="noopener"><img src="./btcon2023_files/diagram-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="320" height="250"></a></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:24px;"><br>「IT化本柱」実装  (2021/05) <br><br>
+<ul>
+<li>生活保護申請書作成(PASS)</li>
+<li>支援制度ナビ(NAVI)</li>
+<li>有人＋チャットボット(Chat)
+
+</li></ul></span></td>  </tr>
+  <tr style="vertical-align:top;">
+      <td><a href="./btcon2023_files/schedule1-min.png" target="___" rel="noopener"><img src="./btcon2023_files/schedule1-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="540" height="250"></a></td>
+      <td style="vertical-align:top; line-height:32px">
+          <span style="font-size:24px;"><br>2021/04〜開発<br><br>5月末リリース<br>6月〜利用評価
+          </span>
+      </td>
+  </tr>
+</tbody>
+
+
+</table>
+
+            </section>
+        
+            <section class="future" style="top: 0px; display: none;" data-index-h="2" data-index-v="3" hidden="" aria-hidden="true">
+                <h3>2021/05 リリース</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="./btcon2023_files/0528-min.png" target="___" rel="noopener"><img src="./btcon2023_files/0528-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></a></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">
+            <a href="https://prtimes.jp/main/html/rd/p/000000089.000012113.html" target="___" rel="noopener">使える支援制度が簡単に探せるWEBアプリ「支援検索ナビ」、生活保護申請書作成システム「パス（PASS）」を同時リリース</a><br>
+            <br>
+            SNSでもこれまでにない反響<br>
+            <a href="https://twitter.com/npomoyai/status/1398204145157521408" target="___" rel="noopener"><img src="./btcon2023_files/20-05-28-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="320"></a>
+            <a href="https://twitter.com/ETIC_NPO/status/1398202608750190598" target="___" rel="noopener"><img src="./btcon2023_files/20-05-28-twitter-etic-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<!--
+[使える支援制度が簡単に探せるWEBアプリ「支援検索ナビ」、生活保護申請書作成システム「パス（PASS）」を同時リリース](https://prtimes.jp/main/html/rd/p/000000089.000012113.html)
+[〈もやい〉COMPASSプロジェクト 支援制度をより使いやすくするためのオンラインツール](https://prtimes.jp/main/html/rd/p/000000038.000018247.html)
+--> 
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="" data-index-h="2" data-index-v="4">
+                <h3>COMPASS 2021/12 リリース</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="https://twitter.com/npomoyai/status/1469154656018317312" target="___" rel="noopener"><img src="./btcon2023_files/20-12-10-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></a></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">
+            <a href="https://prtimes.jp/main/html/rd/p/000000038.000018247.html" target="___" rel="noopener">〈もやい〉COMPASSプロジェクト 支援制度をより使いやすくするためのオンラインツール</a><br>
+            <br>
+            〈もやい〉の手がとどかないところでも人びとが自分の望む生き方を実現するためのCOMPASS＝羅針盤となるような仕組み
+            <br><br>
+            自分の路を探り出すためのツール<br>
+            </span><span style="font-size:24px;">
+<ul>
+<li>NAVI : <a href="https://navi.com-pass.site/" target="___" rel="noopener">https://navi.com-pass.site</a></li>
+<li>PASS : <a href="https://pass.com-pass.site/" target="___" rel="noopener">https://pass.com-pass.site</a></li>
+<li>Chat : <a href="https://www.npomoyai.or.jp/" target="___" rel="noopener">https://www.npomoyai.or.jp/</a> から
+
+</li></ul></span></td>  </tr>
+</tbody>
+
+
+</table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="" data-index-h="2" data-index-v="5">
+                <h3>NAVI・PASS</h3>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://navi.com-pass.site/" target="___" rel="noopener"><img src="./btcon2023_files/ogp-navi-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+    <span style="font-size:20px; line-height:22px; display:block;">
+    ⾃⾝が置かれている状況をチェックリスト形式で<br>⼊⼒すると、⽣活保護制度や緊急⼩⼝資⾦貸付、<br>住居確保給付⾦など、関連する⽀援情報にアクセス<br>できる。<br>まだ網羅的ではないが、経済的な困りごとだけ<br>でなく、虐待やDV、性暴力といった被害に遭って<br>しまった人びとが利用できる支援制度についても<br>紹介している。
+    </span>
+    </td>
+    <td style="border:none;"><a href="https://pass.com-pass.site/" target="___" rel="noopener"><img src="./btcon2023_files/ogp-pass-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+    <span style="font-size:20px; line-height:22px; display:block;">
+    インターネット上で⽣活保護申請書を簡単に<br>作成することができる。<br>一部の自治体で申請書自体をすぐに手に取れる<br>ところにないような場合でも、挫折せずに<br>ウェブ上で自分で申請書を作り、それを<br>自宅やコンビニのプリンターで印刷して提出<br>できる。
+    </span>
+    </td>
+  </tr>
+</tbody></table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="" data-index-h="2" data-index-v="6">
+                <h3>Chatと「かけつけ支援」</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="https://www.npomoyai.or.jp/" target="___" rel="noopener"><img src="./btcon2023_files/ogp-chat-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></a></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">
+            <a href="https://twitter.com/npomoyai/status/1608028229213851648" target="___" rel="noopener"><img src="./btcon2023_files/chat-hasten-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></a>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="3" data-previous-indexv="0">
+        <section style="top: 33px; display: none;" data-index-h="3" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじまりはSTO
+<ul>
+<li><span style="font-size:28px;">今は NPTech、今後 Code for NPO</span>
+<br><br></li>
+</ul>
+</li>
+<li>COMPASS プロジェクト
+<ul>
+<li><span style="font-size:28px;">NAVI と PASS と Chat</span>
+<br><br></li>
+</ul>
+</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">工夫や乗り越えたこと</span>
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:36px;">コスト抑制や予期せぬ問題</span>
+<br><br></li>
+</ul>
+</li>
+<li>自分に起きた変化</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 71px; display: none;" data-index-h="3" data-index-v="1">
+                <h3>コストを極力抑える</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="https://zenn.dev/sogaoh/articles/21-12-11-530ee20e165361" target="___" rel="noopener"><img src="./btcon2023_files/ogp-zenn-21-12-11-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            2021年のアドベントカレンダー<br>記事に行った施策を書きました<br>
+            </span>
+        </td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">
+<ul>
+<li>検証環境に (EC2 より費用かからず定額な) Amazon Lightsail を採用
+<ul>
+<li>＄28/month</li>
+</ul>
+</li>
+<li>NAVI API に AWS App Runner を<br>採用（たぶん国内first事例）
+<ul>
+<li>＄15/month</li>
+</ul>
+</li>
+<li>EC2 Instance Savings Plans と<br>RDS Reserved Instance 年間購入<br>(<a href="https://www.techsoupjapan.org/node/7472" target="___" rel="noopener"> techsoup Credits</a> との併用のため<br>Partial Upfront)
+<ul>
+<li>＄29/month (前払い:＄258/year)</li>
+<li>＄39/month (前払い:＄406/year)</li>
+</ul>
+</li>
+<li>EC2 その他・ELB、Cloud Watch…
+<ul>
+<li>＄150/month (だいたい)
+  </li></ul></li></ul></span></td>
+
+
+  </tr>
+</tbody>
+
+
+</table>
+<!--
+--------
+＄260 *12 + ＄660 => ＄3,780 - ＄1,000 => ＄2,780
+-->
+<!--
+2020 [[corp-engr #3 day.13] 副業でちいさな情シス的に小回る](https://zenn.dev/sogaoh/articles/20-12-13-7f31cdcf2dfe56b38fde)
+2021 [[Day.11] AWSでNPOのWebサービスをはじめるSTO](https://zenn.dev/sogaoh/articles/21-12-11-530ee20e165361)
+-->
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="2">
+                <h3>NGINX の駆使 (検証環境)</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="https://esa-pages.io/p/sharing/6641/posts/1412/4e4ff24b3802d3f12014.html#NGINX%20%E3%81%A7%20/admin%20%E9%85%8D%E4%B8%8B%E3%81%AB%E6%8E%A5%E7%B6%9A%E5%85%83IP%E5%88%B6%E9%99%90%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%E8%A8%AD%E5%AE%9A" target="___" rel="noopener"><img src="./btcon2023_files/esa-2021-06-3-1-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            １台の Lightsail サーバーのみで<br>検証環境を実現するのに実に<br>いろいろな手を用いました
+            </span>
+        </td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">
+<ul>
+<li>NGINX でリクエストを受けて server_name 毎の設定ファイルで振り分けるようにした
+<ul>
+<li>navi / pass の conf、ほかに default, log の conf
+<ul>
+<li>log の conf は ELB からの healthcheck を記録しないように設定
+</li>
+<li>アクセスログが内部IPでなく接続元IPとなるように調整</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/admin のようなパスに対して接続許可設定
+<ul>
+<li>Lightsail でも管理画面への接続元IP制限を実現に成功  </li></ul></li></ul></span></td>
+
+
+  </tr>
+</tbody>
+
+
+</table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="3">
+                <h3>PrefixList で許可IP管理 (運用環境)</h3>
+<span style="font-size:32px">
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/managed-prefix-lists.html" target="___" rel="noopener">マネージドプレフィックスリスト</a> を利用することで、<br>それらを個別に参照するのではなく、セキュリティグループの<br>ルールでセットとして参照できる</p>
+</li>
+<li>
+<p>本Webサービスではセキュリティグループへの適用という<br>標準的な使い方にとどまったが、規模が大きいサービスでの<br>利用時は <a href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups" target="___" rel="noopener">クォータ</a> に注意が必要</p>
+</li>
+<li>
+<p>他に Cloudfront や ルートテーブル・Firewall Manager からの参照も可能で、 <a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html" target="___" rel="noopener">CloudFront のAWS マネージドプレフィックスリスト </a>もある（ refs <a href="https://aws.amazon.com/jp/blogs/news/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/" target="___" rel="noopener">“Amazon CloudFront用のAWS マネージドプレフィックスリストを使用したオリジンへのアクセス制限”</a> ）
+</p>
+</li>
+</ul>
+
+            </span></section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="4">
+                <h3>Facebook シェアできない問題</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td>
+        <a href="https://twitter.com/sogaoh/status/1398594513195606019" target="___" rel="noopener"><img src="./btcon2023_files/21-05-29-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            解除申請、個人からの連絡では<br>何も返事がなく・・・
+            </span>
+        <br>
+        <a href="https://twitter.com/sogaoh/status/1408591529648607234" target="___" rel="noopener"><img src="./btcon2023_files/21-06-26-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            つぶやきも無駄に残るばかり・・・
+            </span>
+        </td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:24px; line-height:26px; display:block;">
+            その後も解決できず8月、情報収集して<br>
+            企業アカウント（広告アカウントではない）<br>
+            からFacebookコンシェルジュサポート へ<br>
+            連絡するも進展なし・・・(日本語の対応)<br>
+            <br>
+            とある 11/24 夜間にリトライする連絡を<br>
+            送ったところ、素早く英語で回答があり、<br>
+            "対応した"と。確認したらなんと・・・<br>
+            <br>
+            </span>
+        <a href="./btcon2023_files/slack-21-11-24-min.png" target="___" rel="noopener"><img src="./btcon2023_files/slack-21-11-24-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="200"></a><span style="font-size:24px; line-height:26px; display:block;">シェアできるようになってた</span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Note: 問い合わせ先は https://www.facebook.com/business/resource -->
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="5">
+                <h3>突然の DNS 障害</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><a href="https://twitter.com/sogaoh/status/1505676028932665344" target="___" rel="noopener"><img src="./btcon2023_files/22-03-21-twitter-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></a><br>
+        </td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:24px; line-height:32px; display:block;">
+<ul>
+<li>3/20(日) 18:52 から発生<br></li>
+<li>3/21(月祝)
+<ul>
+<li>7:41 DNSベンダーに連絡を試み始める<br></li>
+<li>8:37 フォームから問合せ<br></li>
+<li>16:00頃に <a href="https://twitter.com/npomoyai/status/1505800884848304129" target="___" rel="noopener">Twitterで障害告知</a><br></li>
+<li>(DNSベンダーからはこの日結局連絡なし)<br></li>
+</ul>
+</li>
+<li>3/22(火)
+<ul>
+<li>10:00過ぎにDNSベンダーへ電話もつながらず<br></li>
+<li>11:13 問合せへの返信を受信<br>
+「レジストリによる利用制限」が原因とのこと<br>
+解消には複数サイトのブラックリストから除外<br>
+確認が必要とのことで対応を開始</li>
+<li>11:48 Spamhaus というサイトに制限解除申請</li>
+<li>12:04 Spamhaus から制限解除したとメール通知</li>
+<li>12:28 DNSベンダーに制限解除対応を依頼</li>
+<li>14:54 PASS の復旧を確認</li>
+<li>19:51 NAVI の復旧を確認</li>
+</ul>
+</li>
+</ul>
+</span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<!-- https://twitter.com/npomoyai/status/1505800884848304129 img/22-03-21-twitter-announce-min.png -->
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="4" data-previous-indexv="0">
+        <section style="top: 33px; display: none;" data-index-h="4" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>はじまりはSTO
+<ul>
+<li><span style="font-size:28px;">今は NPTech、今後 Code for NPO</span>
+<br><br></li>
+</ul>
+</li>
+<li>COMPASS プロジェクト
+<ul>
+<li><span style="font-size:28px;">NAVI と PASS と Chat</span>
+<br><br></li>
+</ul>
+</li>
+<li>工夫や乗り越えたこと
+<ul>
+<li><span style="font-size:28px;">コスト抑制や予期せぬ問題</span>
+<br><br></li>
+</ul>
+</li>
+<li><span style="color:black; font-weight:bold; font-size:56px">自分に起きた変化</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="1">
+                <h3>社会情勢への関心</h3>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://topics.smt.docomo.ne.jp/article/asahi/nation/ASQD06JTRQD0OXIE002" target="___" rel="noopener"><img src="./btcon2023_files/news-23-01-01-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+    <td style="border:none;"><a href="https://news.goo.ne.jp/article/dot/nation/dot-2022122700107.html" target="___" rel="noopener"><img src="./btcon2023_files/news-22-12-31-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+  </tr>
+  <tr style="border:none;">
+    <td style="border:none;"><a href="https://www.tokyo-np.co.jp/article/222032" target="___" rel="noopener"><img src="./btcon2023_files/news-22-12-26-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+    <td style="border:none;"><a href="https://www.excite.co.jp/news/article/Suumo_189737/?p=4" target="___" rel="noopener"><img src="./btcon2023_files/news-22-09-09-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+  </tr>
+</tbody></table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="2">
+                <h3>国/地方/企業の取り組みへの関心</h3>
+<table style="border:none;">
+  <tbody><tr style="border:none;">
+    <td style="border:none;"><a href="https://www.digital.go.jp/policies/priority-policy-program/" target="___" rel="noopener"><img src="./btcon2023_files/initiatives-national-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+    <td style="border:none;"><a href="https://www8.cao.go.jp/cstp/society5_0/" target="___" rel="noopener"><img src="./btcon2023_files/initiatives-society5-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+  </tr>
+  <tr style="border:none;">
+    <td style="border:none;"><a href="https://www.tokyo-gas.co.jp/news/press/20211201-01.html" target="___" rel="noopener"><img src="./btcon2023_files/initiatives-tokyogas-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+    <td style="border:none;"><a href="https://github.com/meti-dx-team/METI-Digital-Service-Playbook" target="___" rel="noopener"><img src="./btcon2023_files/initiatives-meti-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="280"></a></td>
+  </tr>
+</tbody></table>
+<!-- 
+壮大すぎる -> 小さくやっていくのが良いのでは？
+
+デジタル・ガバメント実行計画
+[デジタル庁 デジタル社会の実現に向けた重点計画](https://www.digital.go.jp/policies/priority-policy-program/) 
+https://twitter.com/Shishamous/status/1432728668573372418
+https://github.com/meti-dx-team/METI-Digital-Service-Playbook
+-->
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="3">
+                <h3>各方面からの声や行動に感じ入る</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td style="vertical-align:top; line-height:32px">
+        <a href="https://twitter.com/dkatsura/status/1606180139158626305" target="___" rel="noopener"><img src="./btcon2023_files/impressed−0-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            (DMして引用許可いただいてます)<br><br>
+            </span>
+        <a href="https://twitter.com/sogaoh/status/1608646493086560256" target="___" rel="noopener"><img src="./btcon2023_files/impressed−1-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            </span>
+        </td>
+        <td>
+        <a href="https://twitter.com/sogaoh/status/1609419401245200384" target="___" rel="noopener"><img src="./btcon2023_files/impressed−2-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="400"></a><br>
+            <span style="font-size:24px; line-height:26px; display:block;">
+            「ハッ」とさせられる内容でした
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<!-- https://twitter.com/dkatsura/status/1606180139158626305 -->
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="4">
+                <h3>これから自身がどうしていくか</h3>
+<span style="font-size:32px">
+<ul>
+<li>
+<p>マイクロ法人として10ヶ月程度経過した今思うのは、<br>今のままで良さそう、と思う制度・文化・仕組みと<br>変わる必要がありそう、と思うそれらがそれぞれある、<br>ということ。</p>
+</li>
+<li>
+<p>NPO との接点を経て、社会課題に触れたことで、<br>IT利用で変えられそうなこと/IT以外で変えていかないと<br>動かなさそうな課題とが山ほどあると感じた。</p>
+</li>
+<li>
+<p>この経験と現在持っている自身の「パワー」を元手に、<br>できるだけ視野を広げて、世の中を良くしていく活動を<br>続けていきたい。</p>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="5">
+                <h3>まとめ</h3>
+<span style="font-size:28px">
+<ol>
+<li>
+<p>NPO との「接点の持ち方」</p>
+<ul>
+<li>=&gt; <!-- 1つの案として、Code for Japan (あるいは NPO に直接飛び込む) --></li>
+</ul>
+</li>
+<li>
+<p>NPO 主導で実現したIT活用事例</p>
+<ul>
+<li>=&gt; <!-- COMPASS プロジェクト、この国にはこれまでに積まれた支援の仕組みがある（形骸化してしまった部分もある...ITは助けになるが本質的な解決は「そこにはない」）--></li>
+</ul>
+</li>
+<li>
+<p>Webサイトにおけるドメインの重要さ</p>
+<ul>
+<li>=&gt; <!-- いろいろな工夫でコストを抑えることは可能。一方で、運営における注意点を知っておく必要尾ある... --></li>
+</ul>
+</li>
+<li>
+<p>社会課題に触れて広がった視野</p>
+<ul>
+<li>=&gt; <!-- 根が深いものもある。どのような考え方を持って課題に向き合うのが良いのか、それぞれ考えよう... --></li>
+</ul>
+</li>
+</ol>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+        <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="future" data-index-h="5">
+            
+            <h4><br>End</h4>
+<br>
+<p>お気づきの点あれば<br><a href="https://twitter.com/sogaoh">@sogaoh</a> まで</p>
+<!-- 
+--
+
+### Appendix 
+<br>
+-->
+            </section>
+    
+
+
+    </div>
+
+
+  <div class="slide-number" style="display: block;"><a href="http://localhost:57779/#/">
+					<span class="slide-number-a">1</span>
+					<span class="slide-number-delimiter">.</span>
+					<span class="slide-number-b">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">NPOと取り組む スモールスタートな 業務IT化 2023/01/21 @sogaoh https://btcon.jp/ </div><div class="backgrounds"><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="./btcon2023_files/reveal.js"></script>
+<script src="./btcon2023_files/notes.js"></script>
+<script src="./btcon2023_files/markdown.js"></script>
+<script src="./btcon2023_files/highlight.js"></script>
+<script src="./btcon2023_files/math.js"></script>
+<script src="./btcon2023_files/plugin.js"></script>
+<script src="./btcon2023_files/plugin(1).js"></script>
+<script src="./btcon2023_files/svg.min.js"></script>
+<script src="./btcon2023_files/plugin(2).js"></script>
+<script src="./btcon2023_files/Chart.min.js"></script>
+<script src="./btcon2023_files/d3.v3.min.js"></script>
+<script src="./btcon2023_files/d3.patch.js"></script>
+<script src="./btcon2023_files/queue.v1.min.js"></script>
+<script src="./btcon2023_files/topojson.v1.min.js"></script>
+<script src="./btcon2023_files/function-plot.js"></script>
+<script src="./btcon2023_files/plugin(3).js"></script>
+<script src="./btcon2023_files/plugin(4).js"></script>
+<script src="./btcon2023_files/Chart.min(1).js"></script>
+<script src="./btcon2023_files/plugin(5).js"></script>
+<script src="./btcon2023_files/verticator.js"></script>
+
+<script src="./btcon2023_files/zoom.js"></script>
+<script src="./btcon2023_files/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./btcon2023_files/widget_iframe.644279d1635fd969e87af94a98bd232b.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./btcon2023_files/saved_resource.html"></iframe></body></html>

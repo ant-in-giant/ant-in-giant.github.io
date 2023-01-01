@@ -11,6 +11,13 @@ sidebar:
   nav: sidebar-slide
 ---
 
+## 2023
+
+|Date |Title  |View Slide  |
+|---:|---|:---:|
+|01/21 |NPOと取り組むスモールスタートな業務IT化 |<a href="../assets/slides/2023/0121/btcon2023.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+
+
 ## 2022
 
 |Date |Title  |View Slide  |
