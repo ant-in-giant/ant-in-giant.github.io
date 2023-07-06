@@ -13,6 +13,12 @@ sidebar:
 
 ## 2023
 
+<!--
+|Date |Title  |View Slide  |
+|---:|---|:---:|
+|07/07 |2023年夏 ぼくの現在地 |<a href="../assets/slides/2023/0707/my-present-location.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+-->
+
 |Date |Title  |View Slide  |
 |---:|---|:---:|
 |01/21 |NPOと取り組むスモールスタートな業務IT化 |<a href="../assets/slides/2023/0121/btcon2023.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
