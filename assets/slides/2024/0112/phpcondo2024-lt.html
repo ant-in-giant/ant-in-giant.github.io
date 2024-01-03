@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:50149/ -->
+<html lang="en" class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <title>Webアプリケーション周りのいろいろなアップグレード戦記  | sogaoh's LT @ PHP Conference Hokkaido 2024</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/reset.css">
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/reveal.css">
+
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="./phpcondo2024-lt_files/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="./phpcondo2024-lt_files/tasklist.css">
+	<link rel="stylesheet" href="./phpcondo2024-lt_files/iota.css">
+	<link rel="stylesheet" href="./phpcondo2024-lt_files/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+
+   
+
+<script id="twitter-wjs" src="./phpcondo2024-lt_files/widgets.js"></script><script src="chrome-extension://nngceckbapebfimnlniiiahkandclblb/content/fido2/page-script.js"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><script type="text/javascript" id="MathJax-script" src="./phpcondo2024-lt_files/tex-mml-chtml.js" async=""></script><link rel="stylesheet" href="./phpcondo2024-lt_files/verticator.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+<body class="reveal-viewport" style="transition: transform 0.8s ease 0s; --slide-width: 960px; --slide-height: 700px; --slide-scale: 2;">
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="./phpcondo2024-lt_files/antingiant.png" style="height:100%">
+    </div>
+
+
+  <div class="reveal center focused has-vertical-slides has-horizontal-slides ready none" role="application" data-transition-speed="default" data-background-transition="fade" style=""><ul class="verticator visible" style="--verticator-scale: 2.00; color: black; --bullet-maincolor: black;"><li data-index="0" class="active"><a href="http://localhost:50149/#/0/0"></a></li><li data-index="1"><a href="http://localhost:50149/#/0/1"></a></li><li data-index="2"><a href="http://localhost:50149/#/0/2"></a></li><li data-index="3"><a href="http://localhost:50149/#/0/3"></a></li></ul>
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(2);">
+
+      
+
+
+    
+    <section style="top: 0px; display: block;" class="stack present" data-index-h="0" data-previous-indexv="0">
+        <section style="top: 167.5px; display: block;" data-index-h="0" data-index-v="0" class="present">
+            <h3>Webアプリケーション周りの<br>いろいろなアップグレード戦記</h3>
+<br>
+<p>2024/01/12  <a href="http://twitter.com/sogaoh">@sogaoh</a><br>
+<a href="https://phpcon.hokkaido.jp/" target="___" rel="noopener">https://phpcon.hokkaido.jp/</a></p>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 82.5px; display: block;" data-index-h="0" data-index-v="1" hidden="">
+                <h3>About Me</h3>
+<span style="font-size:32px">
+<p><a href="https://www.ant-in-giant.work/about/" target="___" rel="noopener">Hisashi SOGA</a><br>
+<img src="./phpcondo2024-lt_files/sogaoh-bio.png" width="320"><br></p>
+</span>
+<span style="font-size:24px">
+<ul>
+<li>5社と個人事業主を経て、2022/3〜 マイクロ法人<a href="https://www.ant-in-giant.llc/" target="___" rel="noopener">ant-in-giant G.K.</a> 代表社員</li>
+<li>法人成りの契機は 2022/1〜 <a href="https://sre-next.org/about/" target="___" rel="noopener">一般社団法人SRE NEXT</a>の法人化で得た知見（ <a href="https://twitter.com/jacopen/status/1672056425768718336" target="___" rel="noopener"><img src="./phpcondo2024-lt_files/square-twitter.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a> ）</li>
+<li>業務委託で複数社に参画し、“小人(こびと)さん” 的に<br>主にクラウドインフラの構築・運用・保守に従事しています</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 19.5px; display: block;" data-index-h="0" data-index-v="2" hidden="">
+                <h3>Advertisement</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><img src="./phpcondo2024-lt_files/tyotto-rurou-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="540"></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">自社メディアをやっています<br>
+            URL : <a href="https://tyotto-rurou.tips/" target="___" rel="noopener">https://tyotto-rurou.tips</a><br>
+            <br>
+            珍しい/お役立ちなITサービス/アプリが<br>
+            見つかるかもしれないサイトです<br>
+            <br>
+            WordPressベースのサイト運営における<br>
+            学びを<!-- <a href="https://zenn.dev/tyotto_rurou" target="___" rel="noopener">https://zenn.dev/tyotto_rurou</a> で<br> -->記事にするかも(?)<br>
+            <br>
+            SNS公式アカウントあり: <a href="https://twitter.com/tyottoRurou" target="___" rel="noopener"><img src="./phpcondo2024-lt_files/square-twitter.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a> <a href="https://www.instagram.com/tyottoRurou" target="___" rel="noopener"><img src="./phpcondo2024-lt_files/square-instagram.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a> <a href="https://www.facebook.com/tyotto.rurou" target="___" rel="noopener"><img src="./phpcondo2024-lt_files/square-facebook.svg" style="max-height:none; max-width:none; margin:0 auto;" width="24"></a>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="0" data-index-v="3" hidden="">
+                <h3>AGENDA</h3>
+<ul>
+<li>PHP 5 on EC2 -&gt; 8 on Fargate</li>
+<li>Aurora 2 (MySQL 5.7) -&gt; 3 (8)</li>
+<li>Laravel 7 -&gt; 9 (lighthouse-php)</li>
+<li>Node 14 -&gt; 20 (Vue.js)
+<br></li>
+</ul>
+<hr>
+<span style="font-size:22px">
+<ul>
+<li>資料は公開してあります -&gt; <!-- <a href="https://pres.ant-in-giant.llc/slide/20230121" target="_____" rel="noopener">https://pres.ant-in-giant.llc/slide/20230121</a>--> <br><br></li>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字<!--や<span style="color:blue">一部の画像</span>-->はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）)<br><br></li>
+<li>(<!-- <a href="https://speakerdeck.com/sogaoh/20240112-phpcondo2024-lt" target="___" rel="noopener">SpeakerDeck版</a> -->SpeakerDeck版 はダウンロードしたPDFならリンクに飛べるのでご利用ください)</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-index-h="1" data-previous-indexv="0">
+        <section style="top: 126.5px; display: block;" data-index-h="1" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:56px">PHP 5 on EC2 -&gt; 8 on Fargate</span>
+<br><br></li>
+<li>Aurora 2 (MySQL 5.7) -&gt; 3 (8)
+<br><br></li>
+<li>Laravel 7 -&gt; 9 (lighthouse-php)
+<br><br></li>
+<li>Node 14 -&gt; 20 (Vue.js)</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 61px; display: block;" data-index-h="1" data-index-v="1">
+                <h3>ローカル開発環境の調整</h3>
+<br>
+<span style="font-size:40px;">
+<ul>
+<li>
+<p>「全部入り」CentOS Dockerfileの「解体」</p>
+<ul>
+<li>php:8.0-apache と mysql:5.7 に</li>
+</ul>
+</li>
+<li>
+<p>ログ出力をファイルから標準出力に変更</p>
+<ul>
+<li>永続化対象の精査</li>
+</ul>
+</li>
+<li>
+<p>自己証明書準備（mkcert と nss を利用）</p>
+<ul>
+<li>ローカルでもHTTPS</li>
+</ul>
+</li>
+</ul>
+</span>
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="1" data-index-v="2">
+                <h3>Docker on EC2 でデバッグ</h3>
+<br>
+<span style="font-size:40px;">
+<ul>
+<li>
+<p>大文字小文字問題</p>
+<ul>
+<li>ファイル名の命名が無秩序</li>
+</ul>
+</li>
+<li>
+<p>秘技「var_dump デバッグ」</p>
+<ul>
+<li>どこで突然止まるのかを特定</li>
+</ul>
+</li>
+<li>
+<p>次々と見つかる「落し穴」</p>
+<ul>
+<li>地獄 <code>0000-00-00 00:00:00</code></li>
+<li>(データの) 文字コード・タイムゾーン</li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="1" data-index-v="3">
+                <h3>CI整備・負荷試験準備</h3>
+<br>
+<span style="font-size:40px;">
+<ul>
+<li>
+<p>案件単位の移行検証 =&gt; 失敗</p>
+<ul>
+<li>ALBの限界に挑む振り分け</li>
+</ul>
+</li>
+<li>
+<p>カバレッジ100%への積み上げ</p>
+<ul>
+<li>地道に Bitbucket Pipelines</li>
+<li>たまに CircleCI (for SSHデバッグ)</li>
+</ul>
+</li>
+<li>
+<p>AWS Distributed Load Testing</p>
+<ul>
+<li>過去のJMeter資産を活用</li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-index-h="2" data-previous-indexv="0">
+        <section style="top: 126.5px; display: block;" data-index-h="2" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>PHP 5 on EC2 -&gt; 8 on Fargate
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Aurora 2 (MySQL 5.7) -&gt; 3 (8) </span>
+<br><br></li>
+<li>Laravel 7 -&gt; 9 (lighthouse-php)
+<br><br></li>
+<li>Node 14 -&gt; 20 (Vue.js)</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 136px; display: none;" data-index-h="2" data-index-v="1">
+                <h3>3月ラウンド： Aurora 2.10 -&gt; 2.11</h3>
+<br>
+<span style="font-size:36px;">
+<ul>
+<li><a href="https://zenn.dev/sogaoh/articles/23-03-22-fbb1e035b974c4" target="___" rel="noopener">RDS強制アップグレードを乗り越える Blue/Green Deployments - Zenn</a>
+<ul>
+<li>フェールオーバーを駆使して binlog_format 有効化</li>
+<li>(今はもうない) 例外申請：「進まない…」</li>
+<li>全Web/Appの接続先切替スクリプトも準備
+<ul>
+<li>(手動Blue/Green)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="2" data-index-v="2">
+                <h3>8月ラウンド： Aurora 2 -&gt; 3</h3>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>
+<p>運用チームに移行前検証を託す</p>
+<ul>
+<li><a href="https://gihyo.jp/dev/serial/01/mysql-road-construction-news/0076" target="___" rel="noopener"> MySQL Shell の checkForServerUpgrade</a></li>
+<li>検証環境でBugの噂の精査や非互換への対応 (↓※1〜3)</li>
+</ul>
+</li>
+<li>
+<p>移行Weekは関係者協働</p>
+<ul>
+<li>Blue/Green 作成で制限事項に抵触した(↓※4)</li>
+<li>当日、夜間バッチの負荷が高く１回タイムアウト（↓※5）</li>
+<li>集計処理が回りきらなくなった問題を翌日中に処置（↓※6）</li>
+</ul>
+</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:16px">
+<ul>
+<li>※1. <a href="https://dev.classmethod.jp/articles/mysql-8-0-32-bug-union-all/" target="___" rel="noopener">MySQL 8.0.32にはUNION ALLをするとWHERE句で日本語が使えなくなるバグが存在します | DevelopersIO</a></li>
+<li>※2. <a href="https://blog.smartbank.co.jp/entry/2023/07/04/120000" target="___" rel="noopener">Aurora MySQLをMySQL8.0へ移行した話 - inSmartBank</a></li>
+<li>※3. <a href="https://ruka.app/mysql%E3%81%AE%E3%81%BA%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E9%8[%E2%80%A6]%E3%81%8C%E9%9D%9E%E6%8E%A8%E5%A5%A8%E3%81%AB%E3%81%AA%E3%81%A3/" target="___" rel="noopener">MySQLのぺージャー部で使用してたFOUND_ROWS()が非推奨になっていた | やってみルカ</a>
+<br><br></li>
+<li>※4. <a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments-overview.html#blue-green-deployments-limitations" target="___" rel="noopener">ブルー/グリーンデプロイの制限事項</a>
+</li>
+<li>※5. <a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments-switching.html#blue-green-deployments-switching-guardrails" target="___" rel="noopener">ブルー/グリーンデプロイの切り替え &gt; 切り替えガードレール</a></li>
+<li>※6. <a href="https://qiita.com/suzukito/items/c7b34be9cff2789e8d84" target="___" rel="noopener">Aurora MySQLで大量データ取得クエリ実行時、一時領域不足エラー #MySQL8.0 - Qiita</a></li>
+</ul>
+
+            </span></section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: none;" class="stack future" data-index-h="3" data-previous-indexv="0" hidden="" aria-hidden="true">
+        <section style="top: 126.5px; display: none;" hidden="" aria-hidden="true" class="past" data-index-h="3" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>PHP 5 on EC2 -&gt; 8 on Fargate
+<br><br></li>
+<li>Aurora 2 (MySQL 5.7) -&gt; 3 (8)
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Laravel 7 -&gt; 9 (lighthouse-php)</span>
+<br><br></li>
+<li>Node 14 -&gt; 20 (Vue.js)</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="past" aria-hidden="true" style="top: 113px; display: none;" hidden="" data-index-h="3" data-index-v="1">
+                <h3>定石を捨て、肉付けし直す</h3>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>
+<p><a href="https://x.com/sogaoh/status/1600903889108480000" target="___" rel="noopener">「jwt, laravel/passport を上げていく」を断念</a></p>
+<ul>
+<li>PHP 8.1, Laravel 9.0 の「骨」をゼロベース作成</li>
+</ul>
+</li>
+<li>
+<p><a href="https://x.com/sogaoh/status/1605588734325293058" target="___" rel="noopener">Laravel 8 でモデルファクトリが激変</a></p>
+<ul>
+<li>migration 周りを大幅調整</li>
+</ul>
+</li>
+<li>
+<p>Login 成功を皮切りに、順次 Query, Mutation を移植</p>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="" style="top: 42px; display: none;" data-index-h="3" data-index-v="2" aria-hidden="true">
+                <h3>うごかないな？を潰していく</h3>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>
+<p>maatwebsite/excel ライブラリ投入時に前提不足</p>
+<ul>
+<li>gd を enable（インストールして php.ini 変更）</li>
+<li>phpoffice/phpspreadsheet を入れる</li>
+</ul>
+</li>
+<li>
+<p><a href="https://x.com/sogaoh/status/1634582267086635009" target="___" rel="noopener">REST API の route の書き方が v7 と v9 で変わってた</a></p>
+</li>
+<li>
+<p>ValidatorDirective -&gt; Validator に要変更、だった（↓※7）</p>
+<ul>
+<li>他にも lighthouse-php v4 -&gt; v5 対応いくつか（↓※8〜9）</li>
+</ul>
+</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:18px">
+<ul>
+<li>※7. <a href="https://github.com/nuwave/lighthouse/blob/master/UPGRADE.md#replace-custom-validation-directives-with-validator-classes" target="___" rel="noopener">Replace custom validation directives with validator classes</a></li>
+<li>※8. <a href="https://github.com/nuwave/lighthouse/blob/master/UPGRADE.md#replace-bcrypt-with-hash">Replace @bcrypt with @hash</a></li>
+<li>※9. <a href="https://github.com/nuwave/lighthouse/blob/master/UPGRADE.md#orderby-argument-renamed-to-column">@orderBy argument renamed to column</a></li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="4" data-previous-indexv="0">
+        <section style="top: 126.5px; display: none;" data-index-h="4" data-index-v="0">
+            <span style="font-size:48px; color:gray">
+<ul>
+<li>PHP 5 on EC2 -&gt; 8 on Fargate
+<br><br></li>
+<li>Aurora 2 (MySQL 5.7) -&gt; 3 (8)
+<br><br></li>
+<li>Laravel 7 -&gt; 9 (lighthouse-php)
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:56px">Node 14 -&gt; 20 (Vue.js)</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 110.5px; display: none;" data-index-h="4" data-index-v="1">
+                <h3>Vue.js 2 の EOL</h3>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>
+<p>たちはだかる “<code>GLIBC_2.27</code> not found”</p>
+<ul>
+<li>開発サーバー： Ubuntu 18</li>
+<li>ビルドコンテナ： Amazon Linux 2 ベース</li>
+</ul>
+</li>
+<li>
+<p>Webpack -&gt; Vite 移行の試行</p>
+<ul>
+<li>Ubuntu 22 OK…</li>
+<li>AL2023 OK…</li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="2">
+                <h3>全部載せビルドコンテナ変更と</h3>
+<br>
+<span style="font-size:36px;">
+<ul>
+<li>
+<p><code>amazon-linux-extras install docker</code> もう使えない</p>
+<ul>
+<li><code>dnf install docker</code> へ</li>
+</ul>
+</li>
+<li>
+<p><code>golang.org</code> / <code>go get</code> はもうない</p>
+<ul>
+<li><code>go.dev</code> / <code>go install</code> へ</li>
+</ul>
+</li>
+<li>
+<p>Graviton に行きたかった・・・</p>
+<ul>
+<li>arm64 に対応できてないライブラリがあって断念</li>
+<li>Fargate Spot が Graviton 未対応</li>
+</ul>
+</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="5" data-previous-indexv="0">
+        <section style="top: 59.5px; display: none;" data-index-h="5" data-index-v="0">
+            <h3>まとめ</h3>
+<br>
+<span style="font-size:48px">
+<p>コンテナ化にも<br>
+DBバージョンアップにも<br>
+フレームワーク更新にも<br>
+OSアップグレードにも</p>
+<p>課題も壁もあるが<br>
+きっと道は切り開ける</p>
+</span>
+            </section>
+        
+            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="1">
+                <h4><br>End</h4>
+<br>
+<p>お気づきの点あれば<br><a href="https://twitter.com/sogaoh">@sogaoh</a> まで</p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  <div class="slide-number" style="display: block;"><a href="http://localhost:50149/#/">
+					<span class="slide-number-a">1</span>
+					<span class="slide-number-delimiter">.</span>
+					<span class="slide-number-b">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down highlight enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Webアプリケーション周りの いろいろなアップグレード戦記 2024/01/12 @sogaoh https://phpcon.hokkaido.jp/ </div><div class="backgrounds"><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div></div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="./phpcondo2024-lt_files/reveal.js"></script>
+<script src="./phpcondo2024-lt_files/notes.js"></script>
+<script src="./phpcondo2024-lt_files/markdown.js"></script>
+<script src="./phpcondo2024-lt_files/highlight.js"></script>
+<script src="./phpcondo2024-lt_files/math.js"></script>
+<script src="./phpcondo2024-lt_files/plugin.js"></script>
+<script src="./phpcondo2024-lt_files/plugin(1).js"></script>
+<script src="./phpcondo2024-lt_files/svg.min.js"></script>
+<script src="./phpcondo2024-lt_files/plugin(2).js"></script>
+<script src="./phpcondo2024-lt_files/Chart.min.js"></script>
+<script src="./phpcondo2024-lt_files/d3.v3.min.js"></script>
+<script src="./phpcondo2024-lt_files/d3.patch.js"></script>
+<script src="./phpcondo2024-lt_files/queue.v1.min.js"></script>
+<script src="./phpcondo2024-lt_files/topojson.v1.min.js"></script>
+<script src="./phpcondo2024-lt_files/function-plot.js"></script>
+<script src="./phpcondo2024-lt_files/plugin(3).js"></script>
+<script src="./phpcondo2024-lt_files/plugin(4).js"></script>
+<script src="./phpcondo2024-lt_files/Chart(1).min.js"></script>
+<script src="./phpcondo2024-lt_files/plugin(5).js"></script>
+<script src="./phpcondo2024-lt_files/verticator.js"></script>
+
+<script src="./phpcondo2024-lt_files/zoom.js"></script>
+<script src="./phpcondo2024-lt_files/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./phpcondo2024-lt_files/widget_iframe.2f70fb173b9000da126c79afe2098f02.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./phpcondo2024-lt_files/saved_resource.html"></iframe></body></html>

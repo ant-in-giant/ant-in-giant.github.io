@@ -11,6 +11,15 @@ sidebar:
   nav: sidebar-slide
 ---
 
+## 2024
+
+<!--
+|Date |Title  |View Slide  |
+|---:|---|:---:|
+|01/12 |Webアプリケーション周りのいろいろなアップグレード戦記 |<a href="../assets/slides/2024/0112/phpcondo2024-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+-->
+
+
 ## 2023
 
 <!--
