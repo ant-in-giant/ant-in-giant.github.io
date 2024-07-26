@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0119)file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html -->
+<!-- saved from url=(0028)http://localhost:56566/#/1/2 -->
 <html lang="en" class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  
 
   <title>複業SRE、どこまでいける？  | sogaoh's LT @ SRE NEXT 2024</title>
 
@@ -19,24 +19,24 @@
   <link rel="stylesheet" href="./srenext2024-lt_files/font-awesome.min.css">
 
   <!-- highlight Theme -->
-
+  
   <link rel="stylesheet" href="./srenext2024-lt_files/monokai.min.css">
-
-
-
+  
+	
+		
 	<link rel="stylesheet" href="./srenext2024-lt_files/style.css">
-
-
-
-
+	
+	
+	
+	
 
 
 
   <!-- Revealjs Theme -->
-
+  
   <link rel="stylesheet" href="./srenext2024-lt_files/simple.css" id="theme">
-
-
+  
+  
 
   <link rel="stylesheet" href="./srenext2024-lt_files/tasklist.css">
 	<link rel="stylesheet" href="./srenext2024-lt_files/iota.css">
@@ -44,12 +44,12 @@
 
 
   <!-- Revealjs Theme -->
-
+  
 
    <!-- css list -->
+	
 
-
-
+   
 
 <style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><script id="twitter-wjs" src="./srenext2024-lt_files/widgets.js"></script><script type="text/javascript" id="MathJax-script" src="./srenext2024-lt_files/tex-mml-chtml.js" async=""></script><link rel="stylesheet" href="./srenext2024-lt_files/verticator.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
 .CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
@@ -440,111 +440,35 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
   font-family: MJXTEX-VB;
   src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
 }
-</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
-.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
-.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
-.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
-</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
-.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
-.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
-.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
-.CtxtMenu_MenuClose:hover:focus {  outline:none}
-</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
-.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
-.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
-.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
-.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
-.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
-.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
-.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
-.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
-.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
-.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
-.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
-.CtxtMenu_MenuSlider {  left: .1em;}
-.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
-.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
-.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
-.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
-.CtxtMenu_MenuDisabled {  color:GrayText}
-.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
-.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
-.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
-.CtxtMenu_ContextMenu:focus {  outline:none}
-.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
-.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
-.CtxtMenu_SelectionItem {  padding-right: 1em;}
-.CtxtMenu_Selection {  right: 40%; width:50%; }
-.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
-.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
-.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
-</style><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><script type="text/javascript" id="MathJax-script" src="./srenext2024-lt_files/tex-mml-chtml(1).js" async=""></script><link rel="stylesheet" href="./srenext2024-lt_files/verticator.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
-.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
-.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
-.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
-</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
-.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
-.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
-.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
-.CtxtMenu_MenuClose:hover:focus {  outline:none}
-</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
-.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
-.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
-.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
-.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
-.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
-.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
-.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
-.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
-.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
-.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
-.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
-.CtxtMenu_MenuSlider {  left: .1em;}
-.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
-.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
-.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
-.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
-.CtxtMenu_MenuDisabled {  color:GrayText}
-.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
-.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
-.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
-.CtxtMenu_ContextMenu:focus {  outline:none}
-.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
-.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
-.CtxtMenu_SelectionItem {  padding-right: 1em;}
-.CtxtMenu_Selection {  right: 40%; width:50%; }
-.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
-.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
-.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
 </style></head>
 
-<body class="reveal-viewport" style="transition: transform 0.8s ease 0s; --slide-width: 960px; --slide-height: 700px; --slide-scale: 1.7005714285714286;">
+<body class="reveal-viewport" style="transition: transform 0.8s ease 0s; --slide-width: 960px; --slide-height: 700px; --slide-scale: 1.6950857142857143;">
 
-
+   
     <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
         <img src="./srenext2024-lt_files/antingiant.png" style="height:100%">
     </div>
 
 
-  <div class="reveal center focused has-vertical-slides has-horizontal-slides ready none" role="application" data-transition-speed="default" data-background-transition="fade" style=""><ul class="verticator visible" style="--verticator-scale: 1.70; color: black; --bullet-maincolor: black;"><li data-index="0" class="active"><a href="file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html#/0/0"></a></li><li data-index="1"><a href="file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html#/0/1"></a></li><li data-index="2"><a href="file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html#/0/2"></a></li><li data-index="3"><a href="file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html#/0/3"></a></li></ul>
+  <div class="reveal center focused has-vertical-slides has-horizontal-slides ready none" role="application" data-transition-speed="default" data-background-transition="fade" style="cursor: none;"><ul class="verticator visible" style="--verticator-scale: 1.70; color: black; --bullet-maincolor: black;"><li data-index="0" class=""><a href="http://localhost:56566/#/1/0"></a></li><li data-index="1" class=""><a href="http://localhost:56566/#/1/1"></a></li><li data-index="2" class="active"><a href="http://localhost:56566/#/1/2"></a></li><li data-index="3"><a href="http://localhost:56566/#/1/3"></a></li></ul>
 
     <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.70057);">
+    <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.69509);">
+
+      
 
 
-
-
-
-    <section style="top: 0px; display: block;" class="stack present" data-index-h="0" data-previous-indexv="0">
-        <section style="top: 140.5px; display: block;" class="present" data-index-h="0" data-index-v="0">
+    
+    <section style="top: 0px; display: block;" class="stack past" data-previous-indexv="3" hidden="" aria-hidden="true">
+        <section style="top: 140.5px; display: none;" class="past" hidden="" aria-hidden="true">
             <h2>複業SRE、<br>どこまでいける？</h2>
 <br>
 <p>2024/08/04  <a href="http://x.com/sogaoh">@sogaoh</a><br>
 <a href="https://sre-next.dev/2024/schedule/#jp026" target="___" rel="noopener">SRE NEXT 2024 LT - Track C 15:25〜</a></p>
 
             </section>
-
-            <section class="future" style="top: 2px; display: block;" data-index-h="0" data-index-v="1" aria-hidden="true" hidden="">
+        
+            <section class="past" style="top: 1.5px; display: none;" hidden="" aria-hidden="true">
                 <h3>About Me</h3>
 <span style="font-size:32px">
 <p><a href="https://www.resume.id/sogaoh" target="___" rel="noopener">Hisashi SOGA</a><br>
@@ -563,8 +487,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 5px; display: block;" hidden="" data-index-h="0" data-index-v="2">
+        
+            <section class="past" style="top: 4.5px; display: block;" hidden="" aria-hidden="true">
                 <h3>ここ最近の活動</h3>
 <table style="border:none;">
   <tbody><tr style="border:none;">
@@ -606,8 +530,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </tbody></table>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="" data-index-h="0" data-index-v="3">
+        
+            <section class="" style="top: 29px; display: block;" aria-hidden="true">
                 <h3>AGENDA</h3>
 <br>
 <span style="font-size:48px">
@@ -629,16 +553,16 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </ul>
 </span>
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
-    <section style="top: 0px; display: block;" class="stack future" data-index-h="1" data-previous-indexv="0" hidden="" aria-hidden="true">
-        <section style="top: 74.5px; display: block;" data-index-h="1" data-index-v="0" hidden="" aria-hidden="true" class="past">
+    
+    <section style="top: 0px; display: block;" class="stack present" data-previous-indexv="1">
+        <section style="top: 74.5px; display: block;" class="past" hidden="" aria-hidden="true">
             <span style="font-size:60px; color:gray">
 <ul>
 <li><span style="color:black; font-weight:bold; font-size:64px">どこまでいける？</span>
@@ -652,8 +576,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="" style="top: 23.5px; display: block;" data-index-h="1" data-index-v="1" aria-hidden="true">
+        
+            <section class="past" style="top: 23.5px; display: block;" hidden="" aria-hidden="true">
                 <h3>契約社数と作業環境</h3>
 <br>
 <table style="border:none;">
@@ -681,8 +605,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </table>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 4.5px; display: block;" data-index-h="1" data-index-v="2" hidden="">
+        
+            <section class="present" style="top: 12px; display: block;">
                 <h3>工夫とか</h3>
 <br>
 <span style="font-size:28px">
@@ -699,30 +623,30 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </ul>
 </span>
 <span style="font-size:28px">
-<pre class="code-wrapper"><code class="language-zsh hljs bash">&lt;span class=<span class="hljs-string">"hljs-comment"</span>&gt;<span class="hljs-comment"># ~/.zsh.d/functions.zsh&lt;/span&gt;</span>
+<pre class="code-wrapper"><code class="language-zsh hljs bash"><span class="hljs-comment"># ~/.zsh.d/functions.zsh</span>
 
-&lt;span class=<span class="hljs-string">"hljs-keyword"</span>&gt;<span class="hljs-keyword">function</span>&lt;/span&gt; &lt;span class=<span class="hljs-string">"hljs-function"</span>&gt;&lt;span class=<span class="hljs-string">"hljs-title"</span>&gt;aig&lt;/span&gt;&lt;/span&gt;() {
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">aig</span></span>() {
   ln -snf ~/src/aig  ~/ghq
-  git config --global user.name &lt;span class=<span class="hljs-string">"hljs-string"</span>&gt;<span class="hljs-string">"sogaoh"</span>&lt;/span&gt;
-  git config --global user.email &lt;span class=<span class="hljs-string">"hljs-string"</span>&gt;<span class="hljs-string">"sogaoh@ant-in-giant.llc"</span>&lt;/span&gt;
+  git config --global user.name <span class="hljs-string">"sogaoh"</span>
+  git config --global user.email <span class="hljs-string">"sogaoh@ant-in-giant.llc"</span>
   ln -snf ~/.config/aws/aig/config ~/.aws/config
   ln -snf ~/.config/aws/aig/credentials ~/.aws/credentials
   ln -snf ~/.config/gcp/aig ~/.config/gcloud
   sudo cp -p ~/.config/hosts/aig/hosts /private/etc/hosts
-  &lt;span class=<span class="hljs-string">"hljs-built_in"</span>&gt;<span class="hljs-built_in">source</span>&lt;/span&gt; ~/.zshrc
+  <span class="hljs-built_in">source</span> ~/.zshrc
 }
 </code></pre>
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="1" data-index-v="3" hidden="">
+        
+            <section class="future" aria-hidden="true" style="top: 43.5px; display: block;" hidden="">
                 <h3>稼働時間(直近の実績値)</h3>
 <p>（時給制の契約に関してのみ）
 <br></p>
 <img src="./srenext2024-lt_files/time-logs-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="360">
 <!-- T:aidiot, D:craid, K:doctorbook, S:metaps, H:slash-->
-<!--
+<!-- 
 - 5月:60h
     - T社:36h
     - D社:12h
@@ -755,16 +679,16 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 -->
 </span>
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
-    <section style="top: 0px; display: block;" class="stack future" data-index-h="2" data-previous-indexv="0" hidden="" aria-hidden="true">
-        <section style="top: 74.5px; display: none;" data-index-h="2" data-index-v="0" hidden="" aria-hidden="true" class="past">
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 74.5px; display: block;">
             <span style="font-size:60px; color:gray">
 <ul>
 <li>どこまでいける？
@@ -778,8 +702,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="" style="top: 38px; display: block;" data-index-h="2" data-index-v="1" aria-hidden="true">
+        
+            <section class="future" aria-hidden="true" style="top: 38px; display: block;">
                 <h3>ほんとにいろいろある</h3>
 <br>
 <div style="display: flex; flex-wrap: nowrap; font-size: 24px;">
@@ -815,8 +739,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </div>
 
             </section>
-
-            <section class="future" style="top: 26px; display: none;" data-index-h="2" data-index-v="2" hidden="" aria-hidden="true">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>どうやって掴む？</h3>
 <div style="font-size:24px">
 「全力」で副業案件を探した今年の年初<br><br>
@@ -871,8 +795,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 -->
 
             </div></section>
-
-            <section class="future" aria-hidden="true" style="top: 136px; display: none;" data-index-h="2" data-index-v="3" hidden="">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>ちゃんと回すコツ(ぼく式)</h3>
 <br>
 <span style="font-size:36px">
@@ -883,16 +807,16 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </ul>
 </span>
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
-    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="3" data-previous-indexv="0">
-        <section style="top: 74.5px; display: none;" data-index-h="3" data-index-v="0">
+    
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 74.5px; display: block;">
             <span style="font-size:60px; color:gray">
 <ul>
 <li>どこまでいける？
@@ -906,19 +830,19 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 178.5px; display: none;" data-index-h="3" data-index-v="1">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <img src="./srenext2024-lt_files/Q-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="960">
 <p><a href="https://www.perplexity.ai/search/fu-ye-shao-jie-saitonatote-zho-6XrbR66zRkWyrPn7bPeqIQ" target="___" rel="noopener">perplexity.ai に聞いた</a></p>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="2">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <img src="./srenext2024-lt_files/A-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="640">
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="3">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>ひそかな野望</h3>
 <br>
 <span style="font-size:36px">
@@ -929,16 +853,16 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </ul>
 </span>
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
-    <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="4" data-previous-indexv="0">
-        <section style="top: 74.5px; display: none;" data-index-h="4" data-index-v="0">
+    
+    <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future">
+        <section style="top: 350px; display: none;">
             <span style="font-size:60px; color:gray">
 <ul>
 <li>どこまでいける？
@@ -952,8 +876,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="1">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>プラス/メリット</h3>
 <br>
 <span style="font-size:36px">
@@ -977,8 +901,8 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="2">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h3>マイナス/リスク</h3>
 <br>
 <span style="font-size:36px">
@@ -1002,37 +926,36 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </span>
 
             </section>
-
-            <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="3">
+        
+            <section class="future" aria-hidden="true" style="top: 350px; display: none;">
                 <h4><br>End</h4>
 <br>
 <p>お気づきの点あれば<br><a href="https://x.com/sogaoh">@sogaoh</a> まで</p>
 
             </section>
-
+        
 
     </section>
-
+    
 
 
     </div>
 
 
-  <div class="slide-number" style="display: block;"><a href="http://localhost:63783/#/">
-					<span class="slide-number-a">1</span>
+  <div class="backgrounds"><div class="slide-background stack past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background past" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div></div><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background past" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background past" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: block;"><a href="http://localhost:56566/#/1/2">
+					<span class="slide-number-a">2</span>
 					<span class="slide-number-delimiter">.</span>
-					<span class="slide-number-b">1</span>
-					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+					<span class="slide-number-b">3</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left enabled" aria-label="previous slide"><div class="controls-arrow"></div></button>
 			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
-			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-down enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">複業SRE、 どこまでいける？ 2024/08/04 @sogaoh SRE NEXT 2024 LT - Track C 15:25〜 </div><div class="backgrounds"><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: block;"><a href="file:///Users/sogaoh/src/aig/github.com/ant-in-giant/ant-in-giant.github.io/assets/slides/2024/0804/srenext2024-lt.html#/">
-					<span class="slide-number-a">1</span>
-					<span class="slide-number-delimiter">.</span>
-					<span class="slide-number-b">1</span>
-					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
-			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-down enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="backgrounds"><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div></div>
+			<button class="navigate-up enabled" aria-label="above slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-down enabled" aria-label="below slide"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0.315789);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">工夫とか パスワードマネージャは 1Password(Businessプラン)、Bitwardenを併用 MFAアプリは Authy と Google Authenticator を併用 ウィルス対策は Microsoft Defender と ESET を併用 以下のようなスクリプトを利用することで、 コマンド一発で作業社を 切換可能にしている refs github.com/sogaoh/m2-provisioner # ~/.zsh.d/functions.zsh function aig () {
+  ln -snf ~/src/aig  ~/ghq
+  git config --global user.name "sogaoh" git config --global user.email "sogaoh@ant-in-giant.llc" ln -snf ~/.config/aws/aig/config ~/.aws/config
+  ln -snf ~/.config/aws/aig/credentials ~/.aws/credentials
+  ln -snf ~/.config/gcp/aig ~/.config/gcloud
+  sudo cp -p ~/.config/hosts/aig/hosts /private/etc/hosts source ~/.zshrc
+} </div></div>
 
   <div class="line top"></div>
   <div class="line bottom"></div>
@@ -1069,7 +992,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 <!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
 <!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
 
-
+  
 
 <script>
   const printPlugins = [
@@ -1077,25 +1000,25 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
       RevealHighlight,
       RevealMath.MathJax3,
       RevealAnimate,
-
+      
 			RevealEmbedTweet,
 			RevealChart,
 		];
 
 		const plugins =  [...printPlugins,
-		RevealZoom,
-		RevealSearch,
-				RevealMarkdown,
-
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
 				RevealFullscreen,
 				RevealAnything,
 				//RevealAudioSlideshow,
 				//RevealAudioRecorder,
-
+				
 				// poll
 				// question
 				// seminar
-				Verticator
+				Verticator 
 				 ]
 
 
@@ -1184,7 +1107,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
         playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
         startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
       },
-
+      
 			customcontrols: {
 					controls: [
       						{
@@ -1193,22 +1116,22 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 						  icon: '<i class="fa fa-th"></i>',
 						  action: 'Reveal.toggleOverview();'
 						}
-
+						
 				]
 			},
 			chart: {
-					defaults: {
+					defaults: { 
 						color: 'lightgray', // color of labels
-						scale: {
-							beginAtZero: true,
+						scale: { 
+							beginAtZero: true, 
 							ticks: { stepSize: 1 },
 							grid: { color: "lightgray" } , // color of grid lines
 						},
 					},
-					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
-					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
 					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
-					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
 			},
 			math: {
 				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
@@ -1216,14 +1139,14 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 				// pass other options into `MathJax.Hub.Config()`
 				TeX: { Macros: { RR: "{\\bf R}" } }
 				},
-				anything: [
+				anything: [ 
 				{
 		className: "plot",
 		defaults: {width:500, height: 500, grid:true},
 		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
 	 },
 	 {
-		className: "chart",
+		className: "chart",  
 		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
 	 },
 	 {
@@ -1232,12 +1155,12 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 	 },
 					],
 			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins )
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
 		});
+			
 
 
-
-	    // Change chalkboard theme :
+	    // Change chalkboard theme : 
 		function changeTheme(input) {
 			var config = {};
 			config.theme = input.value;
@@ -1260,10 +1183,10 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
       		setTimeout(() => {
 				window.print();
 			  }, 2500);
-
+			
     }
 </script>
 
 
 
-<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./srenext2024-lt_files/widget_iframe.2f70fb173b9000da126c79afe2098f02.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./srenext2024-lt_files/saved_resource.html"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./srenext2024-lt_files/saved_resource(1).html"></iframe></body></html>
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./srenext2024-lt_files/widget_iframe.2f70fb173b9000da126c79afe2098f02.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./srenext2024-lt_files/saved_resource.html"></iframe></body></html>
