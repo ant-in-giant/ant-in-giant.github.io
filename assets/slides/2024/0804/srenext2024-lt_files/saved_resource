@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>複業SRE、どこまでいける？  | sogaoh&#39;s LT @ SRE NEXT 2024</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="e">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="u">
+  
+  <link rel="stylesheet" href="i">
+  
+  <link rel="stylesheet" href="t">
+  
+  <link rel="stylesheet" href=".">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="s">
+  
+  <link rel="stylesheet" href="s">
+  
+
+   
+
+</head>
+
+<body>
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="img/antingiant.png" style="height:100%"/>
+    </div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+    <section>
+        <section >
+            <h2>複業SRE、<br>どこまでいける？</h2>
+<br>
+<p>2024/08/04  <a href="http://x.com/sogaoh">@sogaoh</a><br>
+<a href="https://sre-next.dev/2024/schedule/#jp026" target="___" rel="noopener">SRE NEXT 2024 LT - Track C 15:25〜</a></p>
+
+            </section>
+        
+            <section >
+                <h3>About Me</h3>
+<span style="font-size:32px">
+<p><a href="https://www.resume.id/sogaoh" target="___" rel="noopener">Hisashi SOGA</a><br>
+<img src="img/sogaoh-bio-srenext2024.jpg" width="360"><br></p>
+</span>
+<span style="font-size:24px">
+<ul>
+<li>1999年からITエンジニア。GIS(地図)ソフト -&gt; SVF(帳票)ミドルウェア の開発を経験</li>
+<li>2012年から forSurvey(Webアンケート) の開発/運用期に<span style="color:red;">SREチームを立ち上げ</span> <!-- 現状の基盤</span>がここに。--></li>
+<li>2019(個人事業開業)から主にLaravelベースなWebサービスのバックエンド開発者</li>
+<li>2020頃に自ら志願してクラウドインフラ担当となり <span style="color:red;">IaC</span> を推進</li>
+<li>2022年に法人成り。複業で多種多様な</span>タスクを受託し周囲の支援を受けながら実行</li>
+<li>絶妙に少しずつ担当領域を拡大し、<span style="color:red;">フルサイクルSREを志向</span>して活動</li>
+<li>人知れず <a href="https://sre-next.org/about/" target="___" rel="noopener">一般社団法人SRE NEXT</a> の理事（「足まわり」担当）</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>ここ最近の活動</h3>
+<table style="border:none;">
+  <tr style="border:none;">
+    <td style="border:none;">
+      <figure>
+        <a href="https://zenn.dev/link/comments/e2f26afcfdadcb" target="___" rel="noopener">
+          <img src="img/202406sendai-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+        </a>
+        <figcaption style="font-size: 24px; text-align: center;">6月に仙台</figcaption>
+      </figure>
+    </td>
+    <td style="border:none;">
+      <figure>
+        <a href="https://x.com/antingiant/status/1790799042278211653" target="___" rel="noopener">
+          <img src="img/202405kagawa-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+        </a>
+        <figcaption style="font-size: 24px; text-align: center;">5月に高松</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr style="border:none;">
+    <td style="border:none;">
+      <figure>
+        <a href="https://x.com/antingiant/status/1762913393558872070" target="___" rel="noopener">
+          <img src="img/202402hiroshima-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+        </a>
+        <figcaption style="font-size: 24px; text-align: center;">2月に広島</figcaption>
+      </figure>
+    </td>
+    <td style="border:none;">
+      <figure>
+        <a href="https://x.com/antingiant/status/1752110299258446272" target="___" rel="noopener">
+          <img src="img/202401hokkaido-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+        </a>
+        <figcaption style="font-size: 24px; text-align: center;">1月に札幌</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
+
+            </section>
+        
+            <section >
+                <h3>AGENDA</h3>
+<br>
+<span style="font-size:48px">
+<ul>
+<li>ここまでやっている</li>
+<li>どうしてこうなった？</li>
+<li>ふと感じてたコト</li>
+<li>NEXT、こうなってほしい</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:22px">
+<ul>
+<li>資料は公開してあります -&gt; <a href="https://bit.ly/3zWL9kx" target="_____" rel="noopener">https://bit.ly/3zWL9kx</a> <br><br></li>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字<!--や<span style="color:blue">一部の画像</span>-->はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）)<br><br></li>
+<li>(<a href="https://speakerdeck.com/sogaoh/20240804-srenext2024-lt" target="___" rel="noopener">SpeakerDeck版</a> はダウンロードしたPDFならリンクに飛べるのでご利用ください)</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:64px">ここまでやっている</span>
+<br><br></li>
+<li>どうしてこうなった？
+<br><br></li>
+<li>ふと感じてたコト
+<br><br></li>
+<li>NEXT、こうなってほしい</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>契約社数と作業環境</h3>
+<br>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td><img src="img/workroom-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="480" /></td>
+        <td style="vertical-align:top; line-height:32px">
+            <span style="font-size:28px;">10社だった（稼働中は7社）
+            <br>
+            <br>2回線 ＋ モバイル Wi-Fi（生命線）
+            <br>PCは 5 台を使い分け
+            <br>ディスプレイは 7 面
+            <br>・メインPCに 3 面
+            <br>・サブPCに 2 面（持出あり）
+            <br>・Chromebookと貸与PCに各 1 面
+            <br>
+            <span style="color:red">
+            <br>ブラウザProfile使い分けを駆使
+            <br>Mac の <a href="https://support.apple.com/ja-jp/guide/mac-help/mh14112/mac" target="___" rel="noopener">Mission Control <!-- 複数の操作スペース  --></a> で"面"を制御
+            <br>AWSume で多段にどこへでも
+            </span>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+            </section>
+        
+            <section >
+                <h3>工夫とか</h3>
+<br>
+<span style="font-size:28px">
+<ul>
+<li>パスワードマネージャは 1Password(Businessプラン)、Bitwardenを併用</li>
+<li>MFAアプリは Authy と Google Authenticator を併用</li>
+<li>ウィルス対策は Microsoft Defender と ESET を併用
+<br><br></li>
+<li>以下のようなスクリプトを利用することで、<span style="color:red">コマンド一発で作業社を<br>切換可能にしている</span>
+<ul>
+<li>refs <a href="https://github.com/sogaoh/m2-provisioner/tree/main/playbooks/roles/dotfiles/files/.zsh.d" target="___" rel="noopener">github.com/sogaoh/m2-provisioner</a></li>
+</ul>
+</li>
+</ul>
+</span>
+<img src="img/function-aig-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="800" />
+
+            </section>
+        
+            <section >
+                <h3>いろいろな課題と対峙</h3>
+<br>
+<div style="display: flex; flex-wrap: nowrap; font-size: 24px;">
+  <div style="flex: 0 0 25%; padding: 5px; text-align: left;">
+    障害対応<br><br>
+    監視設定<br><br>
+    コスト削減<br><br>
+    RI・SP購入<br><br>
+    システム譲渡<br><br>
+    WAF設置・設定<br><br>
+    サービスクローズ
+  </div>
+  <div style="flex: 0 0 30%; padding: 5px; text-align: left;">
+    <br>
+    バージョンアップ<br><br>
+    CI/CD構築・整備<br><br>
+    ログ集約機構把握<br><br>
+    EC2からECSへ切換<br><br>
+    サーバー構築簡素化<br><br>
+    開発環境コンテナ化<br><br>
+    既存インフラのIaC化
+  </div>
+  <div style="flex: 0 0 45%; padding: 5px; text-align: left;">
+    リプレース/構成見直し<br><br>
+    AWSマルチアカウント対応<br><br>
+    冗長化(プライベートクラウド)<br><br>
+    カスタムマージチェック機構導入<br><br>
+    Gitリポジトリの統合(モノレポ化)<br><br>
+    デプロイ機構の移行(SSHに頼らない)<br><br>
+    脆弱性対応(アプリ改修/インフラ調整)<br><br>
+    ・・・・・・・
+  </div>
+</div>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ここまでやっている
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:64px">どうしてこうなった？</span>
+<br><br></li>
+<li>ふと感じてたコト
+<br><br></li>
+<li>NEXT、こうなってほしい</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>昨年冬の事業危機</h3>
+<br>
+<div style="font-size:28px">
+意図的に「本業」の稼働時間比重を減らしたら<br>
+他の副業案件が突然の停止/打切複数<br>
+</div>
+<br>
+<img src="img/change-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="720" />
+<!-- 
+変えてしまった契約をすぐに戻して・・・とは言いにくかった
+-->
+
+            </section>
+        
+            <section >
+                <h3>副業案件獲得活動</h3>
+<br>
+<div style="font-size:24px">
+全力で代替案件を模索した今年の年初<br><br>
+</div>
+<table style="border:none;">
+  <tr style="border:none;">
+    <td style="border:none;">
+      <figure>
+        <!-- Wantedly -->
+        <img src="img/method1-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" />
+        <figcaption style="font-size: 20px; text-align: center;">業務委託の募集も散見するW</figcaption>
+      </figure>
+      <br>
+    </td>
+    <td style="border:none; width: 20px;"></td>
+    <td style="border:none;">
+      <figure>
+        <!-- shuuumatu-worker -->
+        <img src="img/method2-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" />
+        <figcaption style="font-size: 20px; text-align: center;">商談成立実績があった仲介S</figcaption>
+      </figure>
+      <br>
+    </td>
+  </tr>
+  <tr style="border:none;">
+    <td style="border:none;">
+      <figure>
+        <!-- X -->
+        <img src="img/method3-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" />
+        <figcaption style="font-size: 20px; text-align: center;">まれにお宝案件が発生する旧T</figcaption>
+      </figure>
+    </td>
+    <td style="border:none; width: 20px;"></td>
+    <td style="border:none;">
+      <figure>
+        <!-- YOUTRUST -->
+        <img src="img/method4-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" />
+        <figcaption style="font-size: 20px; text-align: center;">不思議に窮地を救ってくれてたY</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
+<br>
+<div style="font-size:24px">
+なっかなか成約に至れなかった<br><br>
+</div>
+
+            </section>
+        
+            <section >
+                <h3>突然のフィーバー</h3>
+<br>
+<div style="font-size:28px">
+<ul>
+<li>インフラ担当の負荷が高すぎて、軽くしてほしい</li>
+<li>モダンなクラウド利用をしていきたい</li>
+<li>過去のアウトプット記事に共感してもらってた</li>
+<li>運よく？前任者がいなくなるというタイミングで滑り込み</li>
+<li>コンテナ化してメンテナンスしやすくしていきたい</li>
+<li>RDSのアップグレードに向けた知見を伺いたい</li>
+<li>サービスを拡大していきたいので、インフラを点検してほしい</li>
+<li>あのCTOが退任。AWSに詳しい人が求められて復活</li>
+</ul>
+</div>
+<p><span style="color:red; font-size:28px">普段の行いと洗い出してた豊富な経験が実を結んだ４月５月</span></p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ここまでやっている
+<br><br></li>
+<li>どうしてこうなった？
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:64px">ふと感じてたコト</span>
+<br><br></li>
+<li>NEXT、こうなってほしい</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <img src="img/Q-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="960" />
+<p><a href="https://www.perplexity.ai" target="___" rel="noopener">perplexity.ai</a> で聞いてみた</p>
+<!-- <a href="https://www.perplexity.ai/search/fu-ye-shao-jie-saitonatote-zho-6XrbR66zRkWyrPn7bPeqIQ" target="___" rel="noopener">perplexity.ai に聞いた</a> -->
+
+            </section>
+        
+            <section >
+                <div class="r-stack">
+  <div class="fragment fade-in-then-out" style="text-align:center;">
+    <img src="img/A3-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="600">
+    <div style="font-size:20px"><a href="https://www.perplexity.ai/search/fu-ye-shao-jie-saitonatote-zho-juptgN1mQO.hU.W8w.B7ww" target="___" rel="noopener">GPT-4o mini の回答：No</a></div>
+  </div>
+  <div class="fragment fade-in-then-out" style="text-align:center;">
+    <img src="img/A-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="600">
+    <div style="font-size:20px"><a href="https://www.perplexity.ai/search/fu-ye-shao-jie-saitonatote-zho-6XrbR66zRkWyrPn7bPeqIQ" target="___" rel="noopener">Claude 3.5 Sonnet の回答：No</a></div>
+  </div>
+  <div class="fragment fade-in-then-out" style="text-align:center;">
+    <img src="img/A2-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="600">
+    <div style="font-size:20px"><a href="https://www.perplexity.ai/search/fu-ye-shao-jie-saitonatote-zho-H0dT2r0YRsWSW5n4XB2.cA" target="___" rel="noopener">Llama 3.1 405b の回答：Yes</a></div>
+  </div>
+</div>
+
+            </section>
+        
+            <section >
+                <h3>なるほどわからん</h3>
+<br>
+<div style="font-size:28px">
+<ul>
+<li>紹介サイトによって打ち出しが違う</li>
+<li>たしかに、好条件はとびつきやすい</li>
+<li>しかし、副業で週２以上って現実的じゃない</li>
+<li>法規制が整備されてない＝決まってないことが多い</li>
+<li>時給制なのに稼働時間を承認されないケースがあった</li>
+<li>労務面の考慮事項が無限で、受け入れ側の判断が難しそう</li>
+</ul>
+</div>
+<p><span style="color:red; font-size:36px">副業市場ってまだ過渡期なんだなと思った</span></p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ここまでやっている
+<br><br></li>
+<li>どうしてこうなった？
+<br><br></li>
+<li>ふと感じてたコト</span>
+<br><br></li>
+<li><span style="color:black; font-weight:bold; font-size:64px">NEXT、こうなってほしい</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <span style="font-size:48px">
+<p>大きく見せてミスマッチな合意して<br>「こんなはずでは」というSADケースが<br>少なくなってほしい</p>
+</span>
+<br>
+<span style="font-size:48px">
+<p><span style="color:red;">小さく始めて</span>、受託側にも委託側にも<br>課題解決となるHAPPYケースが<br>多くなってほしい</p>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>Beyond “➕ ➖ ✖️”</h3>
+<br>
+<span style="font-size:36px">
+<ul>
+<li>共通の課題と向き合う仲間との対話 =&gt; Priceless</li>
+<li>多様な技術との接点 =&gt; 気付きの機会が増えている</li>
+<li>標準が把握できる：相場・定石・鉄則・守破離の境界
+<br><br></li>
+<li>コンディションコントロール難しい =&gt; 無理しないで</li>
+<li>状況は千変万化 =&gt; 終わりを受け入れる準備を</li>
+<li>契約や法律の解釈は無限になり得るので十分に注意を</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h4><br>End</h4>
+<br>
+<p>お気づきの点あれば <a href="https://x.com/sogaoh">@sogaoh</a> まで</p>
+<p><br><br><br><br><br><br></p>
+<div style="position: absolute; bottom: -40px; right: 20px; z-index: 1000;">
+  <figure>
+    <a href="https://www.ant-in-giant.llc/recruit" target="_blank" rel="noopener"><img src="img/recruit-min.png" width="280" alt="recruit" />
+    <figcaption style="font-size: 14px; text-align: center;">手伝ってくれる方を随時募集してます</figcaption></a>
+  </figure>
+</div>
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>
