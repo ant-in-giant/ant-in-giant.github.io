@@ -111,11 +111,11 @@
 <span style="font-size:24px">
 <ul>
 <li>1999年からITエンジニア。GIS(地図)ソフト -&gt; SVF(帳票)ミドルウェア の開発を経験</li>
-<li>2012年から forSurvey(Webアンケート) の開発/運用期に<span style="color:red;">SREチームを立ち上げ</span> <!-- 現状の基盤</span>がここに。--></li>
+<li>2012年から forSurvey(Webアンケート) の開発/運用期にSREチームを立ち上げ</li>
 <li>2019(個人事業開業)から主にLaravelベースなWebサービスのバックエンド開発者</li>
-<li>2020頃に自ら志願してクラウドインフラ担当となり <span style="color:red;">IaC</span> を推進</li>
-<li>2022年に法人成り。複業で多種多様な</span>タスクを受託し周囲の支援を受けながら実行</li>
-<li>絶妙に少しずつ担当領域を拡大し、<span style="color:red;">フルサイクルSREを志向</span>して活動</li>
+<li>2020頃に自ら志願してクラウドインフラ担当となりIaCを推進</li>
+<li><span style="color:red;">2022年に法人成り。複業で多種多様なタスクを受託し周囲の支援を受けながら実行</span></li>
+<li>絶妙に少しずつ担当領域を拡大し、フルサイクルSREを志向して活動</li>
 <li>人知れず <a href="https://sre-next.org/about/" target="___" rel="noopener">一般社団法人SRE NEXT</a> の理事（「足まわり」担当）</li>
 </ul>
 </span>
@@ -129,7 +129,7 @@
     <td style="border:none;">
       <figure>
         <a href="https://zenn.dev/link/comments/e2f26afcfdadcb" target="___" rel="noopener">
-          <img src="img/202406sendai-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+          <img src="img/202406sendai-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="200" />
         </a>
         <figcaption style="font-size: 24px; text-align: center;">6月に仙台</figcaption>
       </figure>
@@ -137,7 +137,7 @@
     <td style="border:none;">
       <figure>
         <a href="https://x.com/antingiant/status/1790799042278211653" target="___" rel="noopener">
-          <img src="img/202405kagawa-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+          <img src="img/202405kagawa-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="200" />
         </a>
         <figcaption style="font-size: 24px; text-align: center;">5月に高松</figcaption>
       </figure>
@@ -147,7 +147,7 @@
     <td style="border:none;">
       <figure>
         <a href="https://x.com/antingiant/status/1762913393558872070" target="___" rel="noopener">
-          <img src="img/202402hiroshima-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+          <img src="img/202402hiroshima-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="200" />
         </a>
         <figcaption style="font-size: 24px; text-align: center;">2月に広島</figcaption>
       </figure>
@@ -155,14 +155,16 @@
     <td style="border:none;">
       <figure>
         <a href="https://x.com/antingiant/status/1752110299258446272" target="___" rel="noopener">
-          <img src="img/202401hokkaido-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="240" />
+          <img src="img/202401hokkaido-min.png" style="max-height:none; max-width:none; margin:0 auto;" height="200" />
         </a>
         <figcaption style="font-size: 24px; text-align: center;">1月に札幌</figcaption>
       </figure>
     </td>
   </tr>
 </table>
-
+<span style="font-size:24px">
+<p><span style="color:red;">資金の許す範囲で、様々なプロダクトとの<br>向き合い方を現場に取り入れようとしている</span></p>
+</span>
             </section>
         
             <section >
@@ -461,12 +463,12 @@
 <li>紹介サイトによって打ち出しが違う</li>
 <li>たしかに、好条件はとびつきやすい</li>
 <li>しかし、副業で週２以上って現実的じゃない</li>
-<li>法規制が整備されてない＝決まってないことが多い</li>
+<li><span style="color:red">法規制が整備されてない＝決まってないことが多い</span></li>
 <li>時給制なのに稼働時間を承認されないケースがあった</li>
 <li>労務面の考慮事項が無限で、受け入れ側の判断が難しそう</li>
 </ul>
 </div>
-<p><span style="color:red; font-size:36px">副業市場ってまだ過渡期なんだなと思った</span></p>
+<p><span style="font-size:36px">副業市場ってまだ過渡期なんだなと思った</span></p>
 
             </section>
         
@@ -518,6 +520,7 @@
 <li>契約や法律の解釈は無限になり得るので十分に注意を</li>
 </ul>
 </span>
+<p><span style="color:red; font-size:28px">ぼくたち発信で、複業プラクティス生み出せないかな（野望）</span></p>
 
             </section>
         
