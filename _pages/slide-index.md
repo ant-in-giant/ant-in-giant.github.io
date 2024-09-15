@@ -13,6 +13,8 @@ sidebar:
 
 ## 2024
 
+<!-- | 09/19 | 複業SRE、どこまでいける？＋＋ | <a href="../assets/slides/2024/0919/third-thursday-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] | -->
+
 |  Date | Title                                    |                                                               View Slide                                                                |
 |------:|------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
 | 08/04 | 複業SRE、どこまでいける？ | <a href="../assets/slides/2024/0804/srenext2024-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
