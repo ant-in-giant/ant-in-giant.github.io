@@ -13,6 +13,8 @@ sidebar:
 
 ## 2024
 
+<!-- | 12/22 | サーバーなしでWordPress運用、できますよ。 | <a href="../assets/slides/2024/1222/phpcon2024-LT.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] | -->
+
 <!-- | 09/19 | 複業SRE、どこまでいける？＋＋ | <a href="../assets/slides/2024/0919/third-thursday-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] | -->
 
 |  Date | Title                                    |                                                               View Slide                                                                |
