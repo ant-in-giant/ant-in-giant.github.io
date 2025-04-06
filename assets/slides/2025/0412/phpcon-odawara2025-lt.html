@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>2025年春に見直したい、リソース最適化の基本  | sogaoh&#39;s LT @ PHP Conference ODAWARA 2025</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="e">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="u">
+  
+  <link rel="stylesheet" href="i">
+  
+  <link rel="stylesheet" href="t">
+  
+  <link rel="stylesheet" href=".">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="s">
+  
+  <link rel="stylesheet" href="s">
+  
+
+   
+
+</head>
+
+<body>
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="img/antingiant.png" style="height:100%"/>
+    </div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+    <section>
+        <section >
+            <h2>2025年春に見直したい、<br>リソース最適化の基本</h2>
+<br>
+<p>2025/04/12  <a href="http://x.com/sogaoh">@sogaoh</a><br>
+<a href="https://phpcon-odawara.jp/2025/" target="___" rel="noopener">https://phpcon-odawara.jp/2025/</a></p>
+
+            </section>
+        
+            <section >
+                <h3>About Me</h3>
+<br>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td width="30%"><a href="https://www.resume.id/sogaoh" target="___" rel="noopener">Hisashi SOGA</a><br>
+<img src="img/sogaoh-bio-202412-min.png" width="320"></td>
+        <td width="70%"style="vertical-align:top; line-height:48px">
+            <span style="font-size:28px;">
+            ・<a href="https://www.ant-in-giant.llc/about/" target="___" rel="noopener">合同会社 ant-in-giant</a> <span style="font-size:18px;">代表社員</span> (2022/03〜) <br>
+            　・<span style="font-size:20px;">６社で業務委託するクラウドインフラ仕事人</span><br>
+            ・<a href="https://sre-next.org/about/" target="___" rel="noopener">一般社団法人 SRE NEXT</a> <span style="font-size:18px;">理事</span> (2022/01〜)<br>
+            　・<span style="font-size:20px;">"Road to" と会計(自分&将来の誰か)をラクにするために奔走</span><br>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table style="border:none;">
+  <tr style="border:none;">
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://teamdelta.jp/service/" target="_____" rel="noopener"><img src="img/delta-services-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="240" /></a>
+        <figcaption style="font-size: 16px; text-align: center;">開発組織総合支援<br>(主にクラウドコスト削減)</figcaption>
+      </figure>
+      <br>
+    </td>
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://srest.io/team" target="_____" rel="noopener"><img src="img/srest-team-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="240" /></a>
+        <figcaption style="font-size: 16px; text-align: center;">AIソリューション企業のSRE支援</figcaption>
+      </figure>
+    </td>
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://prtimes.jp/main/html/rd/p/000000062.000113938.html" target="_____" rel="noopener"><img src="img/slash-card-press-release-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="220" /></a>
+        <figcaption style="font-size: 16px; text-align: center;">日本初クリプトクレジットカード<br>発行を目指してインフラ構築</figcaption>
+      </figure>
+      <br>
+    </td>
+  </tr>
+</table>
+
+            </section>
+        
+            <section >
+                <h3>AGENDA</h3>
+<br>
+<span style="font-size:48px">
+<ul>
+<li>CPU・メモリ周り</li>
+<li>ストレージ・I/O周り</li>
+<li>CI/CD周り</li>
+<li>ネットワーク周り</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:22px">
+<ul>
+<li>資料は公開してあります -&gt; <!-- <a href="https://bit.ly/4fzeTmx" target="_____" rel="noopener">https://bit.ly/4fzeTmx</a> --> <br><br></li>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字や<span style="color:blue">一部の画像</span>はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）<br><br></li>
+<li>(<a href="https://speakerdeck.com/sogaoh/20250412-phpcon-odawara2025-lt" target="___" rel="noopener">SpeakerDeck版</a> はダウンロードしたPDFならリンクに飛べるのでご利用ください)</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:64px">CPU・メモリ周り</span></li>
+<li>ストレージ・I/O周り</li>
+<li>CI/CD周り</li>
+<li>ネットワーク周り</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>CPU</h3>
+<br>
+<ul>
+<li>ARM64 <!-- エーアールエムシックスフォー --> 系CPUを なるべく 使う
+<ul>
+<li><span style="font-size:32px">DBインスタンスでは迷わずに移行する(自分の場合)</span></li>
+<li><span style="font-size:32px">Appサーバは検証後に移行(ライブラリ使えないとかある)</span></li>
+<li><span style="font-size:32px">理由：性能が良い・コストが低い・消費電力が少ない</span></li>
+<li><span style="font-size:32px">※ まだ x86 <!-- エックスはちろく --> 系CPUが依然として適している場合もある</span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3>Memory Store</h3>
+<br>
+<ul>
+<li>Valkey を かなり 推している
+<ul>
+<li><span style="font-size:32px">Redisのフォーク(容易に移行可能)</span></li>
+<li><span style="font-size:32px">パフォーマンスとリソース使用量に焦点を当てた最適化</span></li>
+<li><span style="font-size:32px">コスト効率が良く、OSS(各種費用面でbetter)</span></li>
+<li><span style="font-size:32px">※ データの永続化と実績において Redis に劣る面がある</span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>CPU・メモリ周り</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">ストレージ・I/O周り</span></li>
+<li>CI/CD周り</li>
+<li>ネットワーク周り</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>ストレージ</h3>
+<br>
+<ul>
+<li>
+<p>より新世代のディスクを使う</p>
+<ul>
+<li><span style="font-size:32px">gp3/HyperDisk/Premium SSD v2(※for data only)</span></li>
+<li><span style="font-size:32px">高速で、だいたいがコスト・性能効率「より良い」</span></li>
+</ul>
+</li>
+<li>
+<p>ワークロードに適したオプションを選択</p>
+<ul>
+<li><span style="font-size:32px">AWS RDS の I/O最適化オプションなど</span></li>
+<li><span style="font-size:32px">メガクラウド以外にも選択肢が出てきている</span>
+<ul>
+<li><span style="font-size:28px">TiDB Serverless など</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3>(Data)ライフサイクル</h3>
+<br>
+<ul>
+<li>
+<p>アクセス頻度に応じたストレージクラス設定</p>
+<ul>
+<li><span style="font-size:32px">AWS: 標準-&gt;IA-&gt;Archive</span>
+<ul>
+<li><span style="font-size:28px">“参照時に「標準」に戻す” もある</span></li>
+</ul>
+</li>
+<li><span style="font-size:32px">Google Cloud: Standard-&gt;Nearline-&gt;Coldline-&gt;Archive</span></li>
+<li><span style="font-size:32px">Azure: Hot-&gt;Cold-&gt;Archive</span></li>
+</ul>
+</li>
+<li>
+<p>古いスナップショットの定期的な棚卸し</p>
+<ul>
+<li><span style="font-size:32px">10年前のなんてもう使わないでしょ？</span></li>
+</ul>
+</li>
+</ul>
+<!-- cache の TTL も意識したいけどちょっと別の話、というか前々頁... -->
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>CPU・メモリ周り</li>
+<li>ストレージ・I/O周り</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">CI/CD周り</span></li>
+<li>ネットワーク周り</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>コンテナ軽量化</h3>
+<br>
+<ul>
+<li>
+<p>slimなベースイメージ選択</p>
+<ul>
+<li><span style="font-size:32px">distroless など</span></li>
+<li><span style="font-size:32px">小さいimageはより速いdeployへの布石</span></li>
+</ul>
+</li>
+<li>
+<p>マルチステージビルド</p>
+<ul>
+<li><span style="font-size:32px">ビルドステージと実行ステージの分離</span></li>
+<li><span style="font-size:32px">必要最小限のファイルでアプリケーション実行</span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3>実行最適化</h3>
+<br>
+<ul>
+<li>
+<p>マルチCPUアーキテクチャの駆使</p>
+<ul>
+<li><span style="font-size:32px">docker buildx の利用</span></li>
+<li><span style="font-size:32px">※ 基盤が未対応、なこともある</span></li>
+</ul>
+</li>
+<li>
+<p>処理の並列化</p>
+<ul>
+<li><span style="font-size:32px">小さく始めると良さそう</span></li>
+<li><span style="font-size:32px">適切な分割が重要</span></li>
+<li><span style="font-size:32px">リソース状況を可視化して改善していく</span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>CPU・メモリ周り</li>
+<li>ストレージ・I/O周り</li>
+<li>CI/CD周り</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">ネットワーク周り</span></li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>(非推奨?) Public only subnet 構成</h3>
+<br>
+<ul>
+<li>Security Group のみでアクセス制御
+<ul>
+<li><span style="font-size:32px">No NAT Gateway</span></li>
+<li><span style="font-size:32px">No VPC EndPoint</span></li>
+<li><span style="font-size:32px">検証用途なら・・・</span></li>
+<li><span style="font-size:32px">※ わりとすぐに破綻します…</span>
+<ul>
+<li><span style="font-size:28px">VPC内 Lambda とかできない</span></li>
+</ul>
+</li>
+<li><span style="font-size:32px">だいぶコストは抑えられる</span></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3>注目の AWS CloudFront VPC Origins</h3>
+<br>
+<ul>
+<li>Private subnet からの配信を可能とする機能
+<ul>
+<li><span style="font-size:32px">ALB・NLB・EC2 に直接ポイントできる</span></li>
+<li><span style="font-size:32px">早速 internal ALB 経由での疎通を試した(成功)</span></li>
+<li><span style="font-size:32px">Vercel FE との疎通には AllViewerExceptHostHeader</span></li>
+<li><span style="font-size:32px">※余談：IPv4とIPv6の併用も試してみた</span>
+<ul>
+<li><span style="font-size:28px">Egress Only Internet Gateway 初めて知った</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>CPU・メモリ周り</li>
+<li>ストレージ・I/O周り</li>
+<li>CI/CD周り</li>
+<li>ネットワーク周り</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">まとめと補足</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <p>新しいものを使っていきましょう。<br>
+ただし、今動いているものを尊重しながら。<br>
+<br>
+デフォルトで提供されてるのを脳死で使うのも<br>
+そんなにダメじゃないけど、特性を理解して<br>
+うまーく使いこなしてると気持ちイイですよ。</p>
+
+            </section>
+        
+            <section >
+                <h4><br>End</h4>
+<br>
+<p>お気づきの点あれば <a href="https://x.com/sogaoh">@sogaoh</a> まで</p>
+<p><br><br><br><br><br><br></p>
+<div style="position: absolute; bottom: -40px; right: 20px; z-index: 1000;">
+  <figure>
+    <a href="https://www.ant-in-giant.llc/recruit" target="_blank" rel="noopener"><img src="img/recruit-min.png" width="280" alt="recruit" />
+    <figcaption style="font-size: 14px; text-align: center;">手伝ってくれる方を随時募集してます</figcaption></a>
+  </figure>
+</div>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h3>[PR] 5/17(土)会津若松へ何卒🙏</h3>
+<br>
+<table style="border:none;">
+  <tr style="border:none;">
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://x.com/mapple_editor/status/1882631999082619263" target="_____" rel="noopener"><img src="img/aizu-gourmet-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="420" /></a>
+        <figcaption style="font-size: 20px; text-align: center;">ソースカツ丼/喜多方ラーメン🍜/...</figcaption>
+      </figure>
+    </td>
+    <!-- <td style="border:none; width: 8px;"></td> -->
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://www.aizukanko.com/course/786" target="_____" rel="noopener"><img src="img/GMcaRU4bgAA3nPB-min.jpeg" style="max-height:none; max-width:none; margin:0 auto;" width="420" /></a><!-- https://x.com/aizu_tsurugajo/status/1785424675897770179 -->
+        <figcaption style="font-size: 20px; text-align: center;">魅力的な観光名所🏯複数...</figcaption>
+      </figure>
+      <br>
+    </td>
+  </tr>
+  <tr style="border:none;">
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://sre-lounge.connpass.com/event/344803/" target="_____" rel="noopener"><img src="img/road-to-aizu-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="420" /></a> 
+        <figcaption style="font-size: 20px; text-align: center;">4/6 時点で 10/20...</figcaption>
+      </figure>
+      <br>
+    </td>
+    <!-- <td style="border:none; width: 8px;"></td> -->
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://u-aizu.ac.jp/access/" target="_____" rel="noopener"><img src="img/move-to-aizu-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="420" /></a>
+        <figcaption style="font-size: 20px; text-align: center;">移動問題の対策...考えた!</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
+
+            </section>
+        
+            <section >
+                <h3>[PR] SRE NEXT 2025 も何卒🙏</h3>
+<br>
+<figure>
+  <a href="https://sre-next.dev/2025/" target="_____" rel="noopener"><img src="img/srenext2025-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="800" /></a>
+</figure>
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>

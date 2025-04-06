@@ -6,6 +6,8 @@ main:
 sidebar-slide:
   - title: ""
     children:
+      - title: "2025"
+        url: /slide/#2025
       - title: "2024"
         url: /slide/#2024
       - title: "2023"
