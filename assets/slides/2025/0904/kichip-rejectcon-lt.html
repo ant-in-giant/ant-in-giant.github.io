@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>わりとなんでもできちゃう Fargate Spot bastion (with ecsta とか)  | sogaoh&#39;s LT @ キチピー リジェクトコン【非公式】 2025</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="e">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="u">
+  
+  <link rel="stylesheet" href="i">
+  
+  <link rel="stylesheet" href="t">
+  
+  <link rel="stylesheet" href=".">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="s">
+  
+  <link rel="stylesheet" href="s">
+  
+
+   
+
+</head>
+
+<body>
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="img/antingiant.png" style="height:100%"/>
+    </div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+    <section>
+        <section >
+            <h2>わりと<br>なんでもできちゃう<br>Fargate Spot bastion<br>(with ecsta とか)</h2>
+<br>
+<p>2025/09/04  <a href="http://x.com/sogaoh">@sogaoh</a><br>
+<a href="https://connpass.com/event/363351/" target="___" rel="noopener">https://connpass.com/event/363351/</a></p>
+
+            </section>
+        
+            <section >
+                <h3>About Me</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td width="36%"><a href="https://www.resume.id/sogaoh" target="___" rel="noopener"><span style="font-size:24px;">sogaoh: Hisashi(央) SOGA</span></a><br>
+<img src="img/sogaoh-bio-202508-min.png" width="320"></td>
+        <td width="64%"style="vertical-align:top; line-height:48px">
+            <span style="font-size:30px;">
+            ・<a href="https://www.ant-in-giant.llc/about/" target="___" rel="noopener">合同会社 ant-in-giant</a> <span style="font-size:18px;">代表社員</span> ('22/03〜) <br>
+            　・<span style="font-size:24px;">３社+?で業務委託するクラウドインフラ仕事人</span><br>
+            　・<span style="font-size:24px;">最近は再委託副業チームを組成中</span><br>
+            ・<a href="https://sre-next.org/about/" target="___" rel="noopener">一般社団法人 SRE NEXT</a> <span style="font-size:18px;">理事</span> ('22/01〜)<br>
+            　・<span style="font-size:24px;">財務/法務/IT/..など「足回り」担当</span><br>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="border:none;">
+  <tr style="border:none;">
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://teamdelta.jp/service/" target="_____" rel="noopener"><img src="img/delta-services-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" /></a>
+        <figcaption style="font-size: 20px; text-align: center;">開発組織総合支援<br>(主にクラウドコスト削減)</figcaption>
+      </figure>
+      <br>
+    </td>
+    <td style="vertical-align:top; border:none;">
+      <figure>
+        <a href="https://prtimes.jp/main/html/rd/p/000000062.000113938.html" target="_____" rel="noopener"><img src="img/slash-card-press-release-min.png" style="max-height:none; max-width:none; margin:0 auto;" width="240" /></a>
+        <figcaption style="font-size: 20px; text-align: center;">日本初クリプトクレジットカード<br>発行を目指してインフラ構築</figcaption>
+      </figure>
+      <br>
+    </td>
+  </tr>
+</table>
+
+            </section>
+        
+            <section >
+                <h3>AGENDA</h3>
+<br>
+<span style="font-size:48px">
+<ul>
+<li>bastion</li>
+<li>Fargate Task</li>
+<li>「なんでも」を仕込む</li>
+<li>自動化する (熱戦譜)</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:22px">
+<!-- - 資料は公開してあります -> <a href="https://bit.ly/" target="_____" rel="noopener">https://bit.ly/</a> <br><br> -->
+<ul>
+<li>※1. 履歴が増殖するため、<span style="color:red">シークレットウィンドウ</span>でご覧ください（Chromeを推奨）</li>
+<li>※2. ところどころの<span style="color:blue">青</span>の文字や<span style="color:blue">一部の画像</span>はリンクになっています</li>
+<li>※3. <span style="color:red">スペース</span>で次のページに進みます（[o]でOverviewが見れます）<br><br></li>
+</ul>
+<!-- - (<a href="https://speakerdeck.com/sogaoh/20250904-kichip-rejectcon-lt" target="___" rel="noopener">SpeakerDeck版</a> はダウンロードしたPDFならリンクに飛べるのでご利用ください) -->
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:64px">bastion</span></li>
+<li>Fargate Task</li>
+<li>「なんでも」を仕込む</li>
+<li>自動化する (熱戦譜)</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>「踏み台」</h3>
+<br>
+<span style="font-size:48px;">
+<ul>
+<li>クラウド環境の「入り口」</li>
+<li>Publicに面する位置に置かれる</li>
+<li>SSH鍵接続 がよくあるパターン</li>
+<li>22 だったり 22022 だったり</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:20px">
+<br>
+<ul>
+<li>かつてオンプレのプライベートクラウド全盛期(?)は <a href="https://github.com/STNS/STNS" target="___" rel="noopener">STNS</a> というツールを利用したりしてた<br><br></li>
+<li>↑をサーバレスで実現してみたのが <a href="https://zenn.dev/sogaoh/articles/21-12-25-af3793dc2fcd0a" target="___" rel="noopener">Serverless STNS</a> という記事（2021年冬）</li>
+</ul>
+</span>
+            </section>
+        
+            <section >
+                <h3>「小さい」が定石</h3>
+<br>
+<span style="font-size:48px;">
+<ul>
+<li>なるべく何も置かない</li>
+<li>単なる “道” としての存在</li>
+<li>でも、ずっと起動されてないと</li>
+<li>お金かかるので「小さいやつで・・・」</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:24px">
+<br>
+<ul>
+<li>ところがあるとき SSM というものが現れた・・・<br><br></li>
+<li>そして、ECS というもの広まってきた・・・</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h3>[PR] こんなのを考えた (1)</h3>
+<br>
+<figure>
+  <img src="img/fargate-bastion-1.min.png" style="max-height:none; max-width:none; margin:0 auto;" width="600" />
+</figure>
+<p><span style="font-size:20px;"><a href="https://zenn.dev/sogaoh/books/20240915_tg-ecspresso-bastion" target="_____" rel="noopener">Terragrunt と ecspresso でつくる かんたん Fargate bastion(‘踏み台’)</a></span></p>
+
+            </section>
+        
+            <section >
+                <h3>[PR] こんなのを考えた (2)</h3>
+<br>
+<figure>
+  <img src="img/fargate-bastion-2.min.png" style="max-height:none; max-width:none; margin:0 auto;" width="800" />
+</figure>
+<p><span style="font-size:20px;"><a href="https://zenn.dev/sogaoh/books/20240915_tg-ecspresso-bastion/viewer/01_overview-of-resources-built-in-this-book" target="_____" rel="noopener">01. 本書で構築するリソースの概要</a></span></p>
+
+            </section>
+        
+            <section >
+                <h3>[PR] こんなのを考えた (3)</h3>
+<br>
+<figure>
+  <img src="img/fargate-bastion-3.min.png" style="max-height:none; max-width:none; margin:0 auto;" width="420" />
+</figure>
+<p><span style="font-size:20px;"><a href="https://zenn.dev/sogaoh/books/20240915_tg-ecspresso-bastion/viewer/24_example-of-use-as-bastion-client" target="_____" rel="noopener">24. bastion-client としての利用例</a></span></p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>bastion</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">Fargate Task</span></li>
+<li>「なんでも」を仕込む</li>
+<li>自動化する (熱戦譜)</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>永続しないなら</h3>
+<br>
+<span style="font-size:48px;">
+<ul>
+<li>いろいろ積んでもええやろ
+<ul>
+<li><span style="font-size:36px">MySQL・Valkey クライアントツール</span>
+<br><br></li>
+</ul>
+</li>
+<li>ローカルでやってることしたいな
+<ul>
+<li><span style="font-size:36px">ソースを clone とか プログラムを実行とか</span></li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>コストを抑える</h3>
+<br>
+<span style="font-size:48px;">
+<ul>
+<li>重くなると気になるのが
+<ul>
+<li><span style="font-size:36px">起動の遅さ、パワーの非力さ、・・・</span>
+<br><br></li>
+</ul>
+</li>
+<li>そこで Fargate Spot ですよ
+<ul>
+<li><span style="font-size:36px">2024年9月から ARM64 Fargate Spot サポート</span></li>
+</ul>
+</li>
+</ul>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>bastion</li>
+<li>Fargate Task</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">「なんでも」を仕込む</span></li>
+<li>自動化する (熱戦譜)</li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>Dockerfile魔改造</h3>
+<br>
+<figure>
+  <img src="img/dockerfile-kaizo.min.png" style="max-height:none; max-width:none; margin:0 auto;" width="600" />
+</figure>
+<p><span style="font-size:24px;">追加で nvm と bun を突っ込む</a></span></p>
+
+            </section>
+        
+            <section >
+                <h3>使うものを送り込む</h3>
+<br>
+<figure>
+  <img src="img/migrate-prepare.min.png" style="max-height:none; max-width:none; margin:0 auto;" width="800" />
+</figure>
+<p><span style="font-size:24px;">Makefile に 一発コマンドを実装</a></span></p>
+<p><span style="font-size:28px;">便利ツール <a href="https://github.com/fujiwara/ecsta" target="_____" rel="noopener">ecsta</a> をフル活用</span></p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>bastion</li>
+<li>Fargate Task</li>
+<li>「なんでも」を仕込む</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">自動化する (熱戦譜)</span></li>
+<li>まとめと補足</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>安定を待つ</h3>
+<br>
+<span style="font-size:48px;">
+<ul>
+<li>みんな大好き(?) GitHub Actions
+<ul>
+<li><span style="font-size:36px">手動実行ではうまくいってたのに・・・</span></li>
+<li><span style="font-size:36px">追ってみると、ECS Task が起動完了してなかった</span>
+<br><br></li>
+</ul>
+</li>
+<li>２つの「待ち」ループを AI構築
+<ul>
+<li><span style="font-size:36px">ECS Task が RUNNING になる</span></li>
+<li><span style="font-size:36px">ExecuteCommandAgent が RUNNING になる</span></li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h3>４大「困った」</h3>
+<br>
+<span style="font-size:40px;">
+<ul>
+<li>ecspresso run した Task に exec できない
+<ul>
+<li><span style="font-size:32px">aws ecs run-task 〜 --enable-execute-command に置き換え</span></li>
+</ul>
+</li>
+<li>コマンドが失敗してるのにGreen判定されてる
+<ul>
+<li><span style="font-size:32px">終了コードチェックを必要箇所に投入</span></li>
+</ul>
+</li>
+<li>処理タスクを取り違える問題
+<ul>
+<li><span style="font-size:32px">ecsta list を利用して最新の Task ID を取るように調整</span></li>
+</ul>
+</li>
+<li>何も migration 適用されなかった？の判定
+<ul>
+<li><span style="font-size:32px">めちゃめちゃ苦戦</span></li>
+</ul>
+</li>
+</ul>
+</span>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>bastion</li>
+<li>Fargate Task</li>
+<li>「なんでも」を仕込む</li>
+<li>自動化する (熱戦譜)</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">まとめと補足</span></li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <span style="font-size:48px;">
+<ul>
+<li>Fargate bastion をご紹介
+<br><br></li>
+<li>なんでも仕込める（検証次第）
+<br><br></li>
+<li>手動と自動の間には<br>手動だとできるのに<br>自動だとちょっとできてない<br>がたくさんある</li>
+</ul>
+</span>
+
+            </section>
+        
+            <section >
+                <h4><br>End</h4>
+<br>
+<br><br>
+<p>お気づきの点あれば <a href="https://x.com/sogaoh">@sogaoh</a> まで</p>
+<p><br><br><br><br><br></p>
+<div style="position: absolute; bottom: -40px; right: 20px; z-index: 1000;">
+  <figure>
+    <a href="https://www.ant-in-giant.llc/recruit" target="_blank" rel="noopener"><img src="img/recruit-min.png" width="280" alt="recruit" />
+    <figcaption style="font-size: 14px; text-align: center;">手伝ってくれる方を随時募集してます</figcaption></a>
+  </figure>
+</div>
+</span>
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>
