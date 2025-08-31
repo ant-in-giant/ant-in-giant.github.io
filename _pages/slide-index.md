@@ -13,9 +13,10 @@ sidebar:
 
 ## 2025
 
-|  Date | Title                                    |                                                               View Slide                                                                |
-|------:|------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
-| 04/12 | 2025年春に見直したい、リソース最適化の基本 | <a href="../assets/slides/2025/0412/phpcon-odawara2025-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+|  Date | Title                                    |                                                                       View Slide                                                                        |
+|------:|------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 09/04 | わりとなんでもできちゃう Fargate Spot bastion (with ecsta とか) | <a href="../assets/slides/2025/0904/kichip-rejectcon-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+| 04/12 | 2025年春に見直したい、リソース最適化の基本 |         <a href="../assets/slides/2025/0412/phpcon-odawara2025-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1]         |
 
 
 ## 2024
