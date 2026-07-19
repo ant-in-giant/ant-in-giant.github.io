@@ -15,6 +15,7 @@ sidebar:
 
 |  Date | Title                                    |                                                              View Slide                                                           |
 |------:|------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------:|
+| 04/11 | 2026年春から始めるOpenTelemetry | <a href="https://speakerdeck.com/sogaoh/20260411-phpcon-odawara2026-lt" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a> |
 | 01/10 | わが10年の叡智をぶつけたカオスなクラウドインフラが、なくなるということ。 | <a href="https://speakerdeck.com/sogaoh/20260110-burikaigi" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a> |
 
 
