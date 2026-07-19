@@ -13,10 +13,11 @@ sidebar:
 
 ## 2026
 
-|  Date | Title                                    |                                                              View Slide                                                           |
-|------:|------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------:|
-| 04/11 | 2026年春から始めるOpenTelemetry | <a href="https://speakerdeck.com/sogaoh/20260411-phpcon-odawara2026-lt" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a> |
-| 01/10 | わが10年の叡智をぶつけたカオスなクラウドインフラが、なくなるということ。 | <a href="https://speakerdeck.com/sogaoh/20260110-burikaigi" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a> |
+|  Date | Title                                    |                                                                      View Slide                                                                       |
+|------:|------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 07/23 | ひとりSRE＋チーム俺が小人sになって挑むステーブルコイン決済基盤の社会実装 | <a href="../assets/slides/2026/0723/tamachi-sre-lt.html" target="_" rel="noopener"><img src="/assets/ico/revealjs.ico"></a> [^1] |
+| 04/11 | 2026年春から始めるOpenTelemetry |     <a href="https://speakerdeck.com/sogaoh/20260411-phpcon-odawara2026-lt" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a>     |
+| 01/10 | わが10年の叡智をぶつけたカオスなクラウドインフラが、なくなるということ。 |           <a href="https://speakerdeck.com/sogaoh/20260110-burikaigi" target="_" rel="noopener"><img src="/assets/ico/speakerdeck.ico"></a>           |
 
 
 ## 2025

@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>ひとりSRE＋チーム俺が小人sになって挑むステーブルコイン決済基盤の社会実装 | sogaoh&#39;s LT @ Tamachi.sre #5</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="e">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="r">
+  
+  <link rel="stylesheet" href="u">
+  
+  <link rel="stylesheet" href="i">
+  
+  <link rel="stylesheet" href="t">
+  
+  <link rel="stylesheet" href=".">
+  
+  <link rel="stylesheet" href="c">
+  
+  <link rel="stylesheet" href="s">
+  
+  <link rel="stylesheet" href="s">
+  
+
+   
+
+</head>
+
+<body>
+
+   
+    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
+        <img src="img/luigi.jpg" style="height:100%"/>
+    </div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+    <section>
+        <section >
+            <h2>ひとりSRE＋チーム俺が<br>小人sになって挑む<br>ステーブルコイン<br>決済基盤の社会実装</h2>
+<br>
+<p>7/23(木) <a href="https://tamachi-sre.connpass.com/event/394914/" target="___" rel="noopener">Tamachi.sre#5</a> <!-- <a href="https://x.com/hashtag/tamachisre?f=live" target="___" rel="noopener">#tamachisre</a> --><br>
+<a href="https://bsky.app/profile/sogaoh.bsky.social">@sogaoh.bsky.social</a>
+<span></p>
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>About Me</h3>
+<table style="border:none;">
+  <tbody>
+    <tr style="vertical-align:top;">
+        <td width="40%"><a href="https://www.resume.id/sogaoh" target="___" rel="noopener"><span style="font-size:24px;">sogaoh: Hisashi(央) SOGA</span></a><br>
+<img src="img/sogaoh-bio.png" width="360"></td>
+        <td width="60%"style="vertical-align:top; line-height:48px">
+            <span style="font-size:32px;">
+            ・<a href="https://www.ant-in-giant.llc/about/" target="___" rel="noopener">ant-in-giant G.K.</a> <span style="font-size:18px;">代表社員</span> ('22/03〜) <br>
+            　・<span style="font-size:20px;">複数社で業務委託するクラウドインフラ仕事人</span><br>
+            ・<a href="https://sre-next.org/about/" target="___" rel="noopener">SRE NEXT Assoc.</a> <span style="font-size:18px;">理事</span> ('22/01〜)<br>
+            　・<span style="font-size:20px;">「SRE を浸透・発展させる」活動やっていきます</span><br><br>
+            ・<a href="https://slash.vision/" target="___" rel="noopener">Slash Vision Pte. Ltd.</a> <span style="font-size:22px; font-color=red;">SRE</span> ('23/07〜)<br>
+            　・<span style="font-size:20px;"><a href="https://pre-card.slash.vision/" target="___" rel="noopener">Slash Card</a> のインフラ構築・保守を主導</span><br>
+            　・<span style="font-size:20px;">なんと Tech Lead になりました</span><br>
+            </span>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<aside class="notes">
+少し自己紹介します。<br>
+そが ひさし といいます。業務委託でクラウドインフラをあれやこれややっております。<br>
+今日の話は右下の Slash Vision というシンガポート法人が起点の話をしていきます。
+</aside>
+
+            </section>
+        
+            <section >
+                <h2>AGENDA</h2>
+<br>
+<span style="font-size:56px">
+<ul>
+<li>ひとりSRE -&gt; チーム俺</li>
+<li>Slash Card・ステーブルコイン</li>
+<li>小人s で組んだ 10年耐性</li>
+<li>Super App・円/USDC交換 へ</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li><span style="color:black; font-weight:bold; font-size:64px">ひとりSRE -&gt; チーム俺</span></li>
+<li>Slash Card・ステーブルコイン</li>
+<li>小人s で組んだ 10年耐性</li>
+<li>Super App・円/USDC交換 へ</li>
+</ul>
+</span>
+<!--
+<div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
+  <figure style="margin: 0; padding: 0; margin-bottom: -100px; margin-right: -0px;">
+    <img src="keropen_stamp/6.png" width="160" alt="keropen" />
+  </figure>
+</div>
+-->
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>はじまりは 2023年夏</h3>
+<br>
+<figure>
+  <img src="img/encounter-with-slash-2023.png" style="max-height:none; max-width:none; margin:0 auto;" width="720px"/>
+</figure>
+<p><span style="font-size:32px;"><a href="https://x.com/htanaka0828/status/1671688635559866368" target="_____" rel="noopener">SREはおらぬか・・・と呼ばれた</a></span></p>
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>突然のチーム俺構想</h3>
+<figure>
+  <img src="img/inside-ant-in-giant-202411.png" style="max-height:none; max-width:none; margin:0 auto;" width="480px"/>
+</figure>
+<span style="font-size:32px;">
+<ul>
+<li>1人で回らなくなってきて手伝いを頼んだ</li>
+<li>これが今こんなに大きくなるとは予想せず</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ひとりSRE -&gt; チーム俺</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">Slash Card・ステーブルコイン</span></li>
+<li>小人s で組んだ 10年耐性</li>
+<li>Super App・円/USDC交換 へ</li>
+</ul>
+</span>
+<!-- 
+<div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
+  <figure style="margin: 0; padding: 0; margin-bottom: -100px; margin-right: -0px;">
+    <img src="keropen_stamp/6.png" width="160" alt="keropen" />
+  </figure>
+</div>
+-->
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>Slash Card のインフラ構築</h3>
+<br>
+<figure>
+  <a href="https://prtimes.jp/main/html/rd/p/000000005.000162470.html" target="___" rel="noopener">
+    <img src="img/slash-card-202506.webp" style="max-height:none; max-width:none; margin:0 auto;" width="620" />
+  </a>
+  <figcaption style="font-size: 20px; text-align: center;">SLASH VISIONが、USDCを担保とした日本初のBNPLサービス<br>「Slash Card」クローズドβ版の事前登録を開始！  2025年6月30日</figcaption>
+</figure>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>dev は自分、stg/premainはTeammateに託す</li>
+<li>prd はまた自分で。小分けに進めた</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>暗号資産 -&gt; ステーブルコイン</h3>
+<figure>
+  <img src="img/stable-coin.png" style="max-height:none; max-width:none; margin:0 auto;" width="360" />
+  <figcaption style="font-size: 20px; text-align: center;"><a href="https://www.for-it.co.jp/mediverse/cryptocurrency/sanae-token/" target="_____" rel="noopener">2026年2月末頃から「サナエトークン」騒動で<br>暗号資産の印象が急に悪くなった</a></figcaption>
+</figure>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>暗号資産は市場の需給によって価格変動</li>
+<li>ステーブルコインは法定通貨等に価値連動</li>
+<li>一定の要件を満たすものは「電子決済手段」</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ひとりSRE -&gt; チーム俺</li>
+<li>Slash Card・ステーブルコイン</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">小人s で組んだ 10年耐性</span></li>
+<li>Super App・円/USDC交換 へ</li>
+</ul>
+</span>
+<!--
+<div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
+  <figure style="margin: 0; padding: 0; margin-bottom: -100px; margin-right: -0px;">
+    <img src="keropen_stamp/6.png" width="160" alt="keropen" />
+  </figure>
+</div>
+-->
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>10年耐性の作り込み</h3>
+<figure>
+  <img src="img/long-term-storage.png" style="max-height:none; max-width:none; margin:0 auto;" width="600px"/>
+  <figcaption style="font-size: 20px; text-align: center;"><a href="https://prtimes.jp/main/html/rd/p/000000021.000162470.html" target="_____" rel="noopener">2026/4/20 についにβリリース<br>水面下ではデータ保管機構の整備</a></figcaption>
+</figure>
+<span style="font-size:32px;">
+<ul>
+<li>短期保存と長期保存の棲み分けを工夫</li>
+<li>これまでの自身の知見と小人sの実装力をMix</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>成長するサービスと共に回す</h3>
+<br>
+<figure>
+  <img src="img/linear-with-dwarfs.png" style="max-height:none; max-width:none; margin:0 auto;" width="640px"/>
+</figure>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li>今や8人の Slack workspace、何でもできる。凄いぞ</li>
+<li>定期的な PHD チェック・Security Hub 運用も Ongoing</li>
+<li><a href="https://linear.app/" target="_____" rel="noopener">Linear</a>を入れてみたら2ヶ月でかるーく 250 issue を超えた</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <span style="font-size:60px; color:gray">
+<ul>
+<li>ひとりSRE -&gt; チーム俺</li>
+<li>Slash Card・ステーブルコイン</li>
+<li>小人s で組んだ 10年耐性</li>
+<li><span style="color:black; font-weight:bold; font-size:64px">Super App・円/USDC交換 へ</span></li>
+</ul>
+</span>
+<!--
+<div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
+  <figure style="margin: 0; padding: 0; margin-bottom: -100px; margin-right: -0px;">
+    <img src="keropen_stamp/6.png" width="160" alt="keropen" />
+  </figure>
+</div>
+-->
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>これからの展開：Super App</h3>
+<figure>
+  <a href="hhttps://slash.vision/service" target="___" rel="noopener">
+    <img src="img/slash-now-and-then.png" style="max-height:none; max-width:none; margin:0 auto;" width="400px"/>
+  </a>
+  <figcaption style="font-size: 20px; text-align: center;"></figcaption>
+</figure>
+<br>
+<span style="font-size:32px;">
+<ul>
+<li><a href="https://prtimes.jp/main/html/rd/p/000000006.000162470.html" target="_____" rel="noopener">Card の先にある構想</a><span style="font-size:24px;">※</span></li>
+<li>アプリ -&gt; 次なるサービスもそこに。All in One で提供</li>
+</ul>
+</span>
+<hr>
+<span style="font-size:20px;">
+<p>※: 2025/6/30時点のプレスリリース</p>
+</span>
+<aside class="notes">
+</aside>
+
+            </section>
+        
+            <section >
+                <h3>「この国を変えていく」挑戦</h3>
+<figure>
+  <a href="https://prtimes.jp/main/html/rd/p/000000025.000162470.html" target="___" rel="noopener">
+    <img src="img/jpy-usdc-exchange.webp" style="max-height:none; max-width:none; margin:0 auto;" width="580px"/>
+  </a>
+</figure>
+<span style="font-size:32px;">
+<ul>
+<li>円をUSDCにシュッと交換可能に</li>
+<li>その事業にはライセンス等いろいろが必要</li>
+<li>その先には Lending なども</li>
+</ul>
+</span>
+<aside class="notes">
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h3>いっしょにやらないか？</h3>
+<figure>
+  <a href="https://x.com/sogaoh/status/2075409859168841813" target="___" rel="noopener">
+    <img src="img/recruitment.png" style="max-height:none; max-width:none; margin:0 auto;" width="400px"/>
+  </a>
+</figure>
+
+            </section>
+        
+            <section >
+                <h4>End</h4>
+<span style="font-size:20px;">
+<p>お気づきの点あれば<br><a href="mailto:sogaoh@slash.vision">sogaoh@slash.vision</a> まで</p>
+</span>
+<p><br><br><br><br><br><br></p>
+<div style="position: absolute; bottom: -40px; right: 20px; z-index: 1000;">
+  <figure>
+    <a href="https://www.ant-in-giant.llc/recruit" target="_blank" rel="noopener"><img src="img/recruit-min.png" width="280" alt="recruit" />
+    <figcaption style="font-size: 14px; text-align: center;">副業で手伝ってくれる方を随時募集してます</figcaption></a>
+  </figure>
+</div>
+<aside class="notes">
+ありがとうございました。
+</aside>
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+
+
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'none',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>
